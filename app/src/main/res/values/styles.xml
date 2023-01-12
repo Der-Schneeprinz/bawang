@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Top bar Styles -->
+    <style name="TopBarIcons">
+        <item name="android:layout_marginHorizontal">24sp</item>
+        <item name="android:minWidth">48sp</item>
+        <item name="android:minHeight">48sp</item>
+    </style>
+    <style name="TopBar">
+        <!-- TODO: Style properly the texts and such for the tab fragments, search box, and sort box -->
+        <item name="android:background">@color/maroon_1</item>
+        <item name="android:paddingHorizontal">40sp</item>
+        <item name="android:paddingVertical">10sp</item>
+    </style>
+    <style name="TopBarTitle">
+        <item name="android:textColor">@color/yellow_1</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Post Related Styles -->
+    <style name="TextUsername">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/grey_1</item>
+    </style>
+    <style name="TextOrg">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="TextInBetween">
+        <item name="android:text">in</item>
+        <item name="android:paddingHorizontal">5sp</item>
+    </style>
+    <style name="TextTitle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="TextPost">
+        <item name="android:paddingBottom">16sp</item>
+        <item name="android:paddingTop">8sp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:maxWidth">300sp</item>
+        <item name="android:maxLines">4</item>
+    </style>
+    <style name="TextCounter">
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">10sp</item>
+    </style>
+    <style name="PostButton">
+        <item name="android:paddingHorizontal">5sp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:background">@null</item>
+    </style>
+    <style name="Posts">
+        <item name="android:background">@drawable/post_card_bg</item>
+    </style>
+    <style name="PostProfile">
+        <item name="android:minHeight">40sp</item>
+        <item name="android:minWidth">40sp</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <!-- Profile -->
+    <style name="ProfileProfile">
+        <item name="android:minHeight">100sp</item>
+        <item name="android:minWidth">100sp</item>
+        <item name="android:background">@null</item>
+    </style>
+    <style name="ProfileOrgItem">
+        <item name="android:background">@null</item>
+        <item name="android:minHeight">10sp</item>
+        <item name="android:minWidth">10sp</item>
+    </style>
+    <style name="ProfileMasthead">
+        <item name="android:background">@color/maroon_1</item>
+    </style>
+    <style name="ProfileUsername">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="ProfileEmail">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/yellow_1</item>
+    </style>
+    <style name="ProfileDetails">
+        <item name="android:paddingTop">10sp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/grey_1</item>
+    </style>
+    <style name="AffiliatedTopBar">
+        <item name="android:padding">10sp</item>
+    </style>
+
+    <!-- Text Styles -->
+    <style name="NormalText">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/yellow_2</item>
+    </style>
+    <style name="NormalTextBody">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="TextLink">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/yellow_2</item>
+    </style>
+
+    <!-- Button Styles -->
+    <style name="NormalButton">
+        <item name="android:background">@drawable/btn_rounded</item>
+        <item name="android:textColor">@color/maroon_2</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:inputType">textCapWords</item>
+        <item name="android:colorAccent">@color/yellow_1</item>
+    </style>
+    <style name="NormalButtonDeactivated">
+        <item name="android:background">@drawable/btn_rounded</item>
+        <item name="android:textColor">@color/maroon_2</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:inputType">textCapWords</item>
+        <item name="android:colorAccent">@color/yellow_1</item>
+    </style>
+    <style name="SecondaryButton">
+        <item name="android:background">@drawable/btn_secondary_rounded</item>
+        <item name="android:textColor">@color/yellow_1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:inputType">textCapWords</item>
+        <item name="android:colorAccent">@color/yellow_1</item>
+    </style>
+    <style name="PlainImageButton">
+        <item name="android:background">@null</item>
+        <item name="android:minHeight">24sp</item>
+        <item name="android:minWidth">24sp</item>
+    </style>
+
+    <!-- Input Styles  -->
+    <style name="NormalEditText">
+        <item name="android:minHeight">48sp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+    <style name="NormalSpinner">
+        <item name="android:minHeight">48sp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:color">@color/white</item>
+        <item name="android:colorAccent">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+    <style name="SortSpinner">
+        <item name="android:minHeight">36sp</item>
+        <item name="android:minWidth">300sp</item>
+        <item name="android:maxWidth">300sp</item>
+        <item name="android:color">@color/black</item>
+        <item name="android:colorAccent">@color/black</item>
+        <item name="android:textColorHint">@color/black</item>
+        <item name="android:backgroundTint">@color/black</item>
+    </style>
+    <style name="NormalCheckbox">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+
+</resources>

@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Org Search</string>
+    <string-array name="spSex">
+        <item>Female</item>
+        <item>Male</item>
+    </string-array>
+    <string-array name="spSort">
+        <item>Ascending</item>
+        <item>Descending</item>
+    </string-array>
+
+    <!-- DUMMY DATA FOR POSTS -->
+    <string name="postUsername">NO ONE</string>
+    <string name="postText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="postOrg">NO ORG</string>
+    <string name="postTitle">NO TITLE</string>
+    <string name="postUpvoteCounter">0</string>
+    <string name="postDownvoteCounter">0</string>
+    <string-array name="saUsernames">
+        <item>John_Doe</item>
+        <item>Joan_Doe</item>
+        <item>Juan_Dela_Cruz</item>
+        <item>Juana_Dela_Cruz</item>
+        <item>Jean_D_Arc</item>
+        <item>Jeanne_D_Arc</item>
+    </string-array>
+    <string-array name="saOrgs">
+        <item>PUP Sintang Pusa</item>
+        <item>PUP Sintang Aso</item>
+    </string-array>
+    <string-array name="saTitle">
+        <item>Lorem Ipsum</item>
+    </string-array>
+    <string-array name="saPosts">
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

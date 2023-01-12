@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "460046517397",
+    "project_id": "test-project-189f6",
+    "storage_bucket": "test-project-189f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460046517397:android:c72206beba6272a179479c",
+        "android_client_info": {
+          "package_name": "com.merah.bawang"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "460046517397-fp4bj6s6gf7a3nrvqv9pdohm03sbhfo6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAptrnbgOyJZj1Pu_z5MQ3q02YUK7GpOJc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "460046517397-fp4bj6s6gf7a3nrvqv9pdohm03sbhfo6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
