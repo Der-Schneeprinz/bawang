@@ -13,6 +13,13 @@
         android:theme="@style/Theme.Bawang"
         tools:targetApi="28">
         <activity
+            android:name=".OrganizationProfileActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainFragmentHandlerActivity"
             android:exported="false">
             <meta-data

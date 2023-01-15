@@ -8,7 +8,7 @@
             android:title="Night Mode"
             android:key="Night"
             android:defaultValue="false"
-            android:summaryOn="Night mode is activated."
+            android:summaryOn="Night mode is enabled."
             android:summaryOff="Night mode is disabled." />
 
     </PreferenceCategory>

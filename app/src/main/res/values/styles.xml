@@ -96,6 +96,54 @@
         <item name="android:padding">10sp</item>
     </style>
 
+    <!-- Organization Profiles -->
+    <style name="OrgProfile">
+        <item name="android:minHeight">100sp</item>
+        <item name="android:minWidth">100sp</item>
+        <item name="android:background">@null</item>
+    </style>
+    <style name="OrgOrgItem">
+        <item name="android:background">@null</item>
+        <item name="android:minHeight">10sp</item>
+        <item name="android:minWidth">10sp</item>
+    </style>
+    <style name="OrgMasthead">
+        <item name="android:background">@color/yellow_1</item>
+    </style>
+    <style name="OrgUsername">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="OrgEmail">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/maroon_2</item>
+    </style>
+    <style name="OrgDetails">
+        <item name="android:paddingTop">10sp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/grey_2</item>
+    </style>
+    <style name="OrgButtonPressed">
+        <item name="android:background">@drawable/btn_rounded2</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:inputType">textCapWords</item>
+        <item name="android:colorAccent">@color/black</item>
+    </style>
+    <style name="OrgButtonUnPressed">
+        <item name="android:background">@drawable/btn_rounded</item>
+        <item name="android:backgroundTint">@color/maroon_2</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:inputType">textCapWords</item>
+        <item name="android:colorAccent">@color/black</item>
+    </style>
+
     <!-- Text Styles -->
     <style name="NormalText">
         <item name="android:textSize">20sp</item>
