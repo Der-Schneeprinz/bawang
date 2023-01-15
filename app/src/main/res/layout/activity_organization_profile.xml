@@ -10,7 +10,6 @@
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey_2"
         app:layout_constraintTop_toBottomOf="@id/conTopBar"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -28,13 +27,13 @@
                 layout="@layout/item_masthead_org"/>
 
             <include
-                android:id="@+id/conAffiliates"
+                android:id="@+id/conNewsfeed"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/conMasthead"
-                layout="@layout/item_affiliates"/>
+                layout="@layout/item_org_newsfeed"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
