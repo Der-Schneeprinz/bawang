@@ -23,6 +23,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -58,6 +60,7 @@ public class SignupActivity extends AppCompatActivity {
         studentNo = findViewById(R.id.etStudentNo);
 
         mAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://test-project-189f6-default-rtdb.asia-southeast1.firebasedatabase.app/");
 
         // Sets up spinner for sex
         spinner = (Spinner) findViewById(R.id.spSex);
@@ -84,7 +87,7 @@ public class SignupActivity extends AppCompatActivity {
                 String mstudentNo = studentNo.getText().toString().trim();
 
                 // empty field if statements
-                if(mfName.isEmpty()) {
+                /*if(mfName.isEmpty()) {
                     fName.setError("Empty First Name field.");
                     fName.setFocusable(true);
                 }
@@ -99,18 +102,26 @@ public class SignupActivity extends AppCompatActivity {
                 if(mpassword.isEmpty()) {
                     password.setError("Empty Password field");
                     password.setFocusable(true);
-                }
-
-                if(!Patterns.EMAIL_ADDRESS.matcher(memail).matches()) {
+                }*/
+                if(mfName.isEmpty() || mlName.isEmpty() || memail.isEmpty() || mpassword.isEmpty() || mstudentNo.isEmpty()) {
+                    Toast.makeText(SignupActivity.this, "Please fill up all fields.", Toast.LENGTH_SHORT).show();
+                } else if(!Patterns.EMAIL_ADDRESS.matcher(memail).matches()) {
                     email.setError("Invalid email format.");
                     email.setFocusable(true);
-                }
-                if(password.length() < 6) {
+                } else if(password.length() < 6) {
                     password.setError("Password must be at a length >6.");
                     password.setFocusable(true);
-                }
-                if(Patterns.EMAIL_ADDRESS.matcher(memail).matches() && password.length() < 6)
+                } else if(Patterns.EMAIL_ADDRESS.matcher(memail).matches() && password.length() < 6) {
+                    /*databaseReference.child("users").child(mfName).child("First Name").setValue(mfName);
+                    databaseReference.child("users").child(mmName).child("Middle Name").setValue(mmName);
+                    databaseReference.child("users").child(mlName).child("Last Name").setValue(mlName);
+                    databaseReference.child("users").child(memail).child("Email").setValue(memail);
+                    databaseReference.child("users").child(mpassword).child("Password").setValue(mpassword);
+                    databaseReference.child("users").child(mstudentNo).child("Student Number").setValue(mstudentNo);
+
+                    Toast.makeText(SignupActivity.this, "User has been registered.", Toast.LENGTH_SHORT).show();*/
                     registerUser(memail, mpassword);
+                }
             }
         });
     }
@@ -120,17 +131,23 @@ public class SignupActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("SignupActivity", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            //updateUI(user);
                         } else {
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(SignupActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            // If sign in fails, display a message to the user.
+                            Log.w("SignupActivity", "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(SignupActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            //updateUI(null);
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(SignupActivity.this, "Authentication failed..", Toast.LENGTH_SHORT).show();
+
                     }
                 });
     }

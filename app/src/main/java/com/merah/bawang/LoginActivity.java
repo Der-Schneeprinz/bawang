@@ -1,27 +1,45 @@
 package com.merah.bawang;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
     private TextView toSignup;
-    private Button toHome;
     private TextView toForgotPass;
+    private Button btnLogin;
+
+    // Log in credentials
+    private EditText email;
+    private EditText password;
+
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        toSignup = findViewById(R.id.tvSignUp);
-        toHome = findViewById(R.id.btnLogin);
+        toSignup = findViewById(R.id.btnSignUp);
         toForgotPass = findViewById(R.id.tvForgotPassword);
-
+        // TODO: forgot password
         /*toForgotPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,14 +54,76 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
-        toHome.setOnClickListener(new View.OnClickListener() {
+    @Override
+    protected void onStart() {
+        loggedInStatus();
+        super.onStart();
+
+        // Log in credentials
+        email = findViewById(R.id.etEmail);
+        password = findViewById(R.id.etPassword);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        btnLogin = findViewById(R.id.btnLogin);
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, MainFragmentHandlerActivity.class);
-                startActivity(intent);
-                finish();
+                String memail = email.getText().toString().trim();
+                String mpassword = password.getText().toString().trim();
+
+                if(!Patterns.EMAIL_ADDRESS.matcher(memail).matches()) {
+                    email.setError("Invalid email format.");
+                    email.setFocusable(true);
+                } else {
+                    loginUser(memail, mpassword);
+                }
+
             }
         });
+    }
+
+    private void loggedInStatus() {
+        // Checks if user is logged in
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+            finish();
+        } else {
+
+        }
+    }
+
+    private void loginUser(String email, String password) {
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("LoginActivity", "signInWithCustomToken:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            //updateUI(user);
+                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                            finish();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w("LoginActivity", "signInWithCustomToken:failure", task.getException());
+                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            //updateUI(null);
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(LoginActivity.this, e.getMessage(),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
