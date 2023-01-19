@@ -58,14 +58,14 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        loggedInStatus();
         super.onStart();
+
+        mAuth = FirebaseAuth.getInstance();
 
         // Log in credentials
         email = findViewById(R.id.etEmail);
         password = findViewById(R.id.etPassword);
-
-        mAuth = FirebaseAuth.getInstance();
+        // TODO: Build a password show/hide
 
         btnLogin = findViewById(R.id.btnLogin);
 
@@ -79,25 +79,16 @@ public class LoginActivity extends AppCompatActivity {
                     email.setError("Invalid email format.");
                     email.setFocusable(true);
                 } else {
-                    loginUser(memail, mpassword);
+                    loginUser(memail, mpassword, mAuth);
                 }
 
             }
         });
     }
 
-    private void loggedInStatus() {
-        // Checks if user is logged in
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-            finish();
-        } else {
-
-        }
-    }
-
-    private void loginUser(String email, String password) {
+    private void loginUser(String email, String password, @NonNull FirebaseAuth mAuth) {
+        FirebaseUser user = mAuth.getCurrentUser();
+        Log.d("LoginActivity", ""+user);
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override

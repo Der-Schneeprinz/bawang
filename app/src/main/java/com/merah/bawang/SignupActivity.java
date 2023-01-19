@@ -60,7 +60,7 @@ public class SignupActivity extends AppCompatActivity {
         studentNo = findViewById(R.id.etStudentNo);
 
         mAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://test-project-189f6-default-rtdb.asia-southeast1.firebasedatabase.app/");
+        //databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://test-project-189f6-default-rtdb.asia-southeast1.firebasedatabase.app/");
 
         // Sets up spinner for sex
         spinner = (Spinner) findViewById(R.id.spSex);
@@ -111,7 +111,7 @@ public class SignupActivity extends AppCompatActivity {
                 } else if(password.length() < 6) {
                     password.setError("Password must be at a length >6.");
                     password.setFocusable(true);
-                } else if(Patterns.EMAIL_ADDRESS.matcher(memail).matches() && password.length() < 6) {
+                } else if(Patterns.EMAIL_ADDRESS.matcher(memail).matches() && password.length() > 6) {
                     /*databaseReference.child("users").child(mfName).child("First Name").setValue(mfName);
                     databaseReference.child("users").child(mmName).child("Middle Name").setValue(mmName);
                     databaseReference.child("users").child(mlName).child("Last Name").setValue(mlName);
@@ -120,13 +120,13 @@ public class SignupActivity extends AppCompatActivity {
                     databaseReference.child("users").child(mstudentNo).child("Student Number").setValue(mstudentNo);
 
                     Toast.makeText(SignupActivity.this, "User has been registered.", Toast.LENGTH_SHORT).show();*/
-                    registerUser(memail, mpassword);
+                    registerUser(memail, mpassword, mAuth);
                 }
             }
         });
     }
 
-    private void registerUser(String email, String password) {
+    private void registerUser(String email, String password, @NonNull FirebaseAuth mAuth) {
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -147,7 +147,8 @@ public class SignupActivity extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-
+                        Toast.makeText(SignupActivity.this, e.getMessage(),
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
     }
