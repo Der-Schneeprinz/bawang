@@ -1,4 +1,4 @@
-package com.merah.bawang.fragments;
+package com.merah.bawang.homescreen.fragments;
 
 import android.os.Bundle;
 
@@ -18,7 +18,7 @@ import com.merah.bawang.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 
-public class PostsFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView;
     ArrayList<ItemPostContent> itemPostContent = new ArrayList<ItemPostContent>();
@@ -32,7 +32,7 @@ public class PostsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_posts, container, false);
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
     @Override

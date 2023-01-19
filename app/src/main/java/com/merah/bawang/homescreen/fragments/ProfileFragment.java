@@ -1,4 +1,4 @@
-package com.merah.bawang.fragments;
+package com.merah.bawang.homescreen.fragments;
 
 import android.os.Bundle;
 

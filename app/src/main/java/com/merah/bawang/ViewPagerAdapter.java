@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.merah.bawang.fragments.OrgsFragment;
-import com.merah.bawang.fragments.PostsFragment;
-import com.merah.bawang.fragments.ProfileFragment;
+import com.merah.bawang.homescreen.fragments.OrgsFragment;
+import com.merah.bawang.homescreen.fragments.PostsFragment;
+import com.merah.bawang.homescreen.fragments.ProfileFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
 

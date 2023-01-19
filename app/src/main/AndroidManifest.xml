@@ -20,7 +20,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainFragmentHandlerActivity"
+            android:name=".homescreen.MainFragmentHandlerActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -55,17 +55,17 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SignupActivity"
+            android:name=".bootup.SignupActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".bootup.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".bootup.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

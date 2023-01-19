@@ -1,4 +1,4 @@
-package com.merah.bawang;
+package com.merah.bawang.homescreen;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,9 +12,10 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-import com.merah.bawang.fragments.DiscoverFragment;
-import com.merah.bawang.fragments.HomeFragment;
-import com.merah.bawang.fragments.ProfileFragment;
+import com.merah.bawang.R;
+import com.merah.bawang.homescreen.fragments.DiscoverFragment;
+import com.merah.bawang.homescreen.fragments.HomeFragment;
+import com.merah.bawang.homescreen.fragments.ProfileFragment;
 
 public class MainFragmentHandlerActivity extends AppCompatActivity implements BottomNavigationView.OnItemSelectedListener {
 
