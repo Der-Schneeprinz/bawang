@@ -1,4 +1,4 @@
-package com.merah.bawang;
+package com.merah.bawang.organizationprofile;
 
 public class Member {
 

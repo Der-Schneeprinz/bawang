@@ -1,8 +1,10 @@
-package com.merah.bawang;
+package com.merah.bawang.organizationprofile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.merah.bawang.R;
 
 public class OrganizationProfileActivity extends AppCompatActivity {
 

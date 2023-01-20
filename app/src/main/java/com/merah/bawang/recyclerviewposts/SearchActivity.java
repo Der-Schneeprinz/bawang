@@ -1,8 +1,11 @@
-package com.merah.bawang;
+package com.merah.bawang.recyclerviewposts;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.merah.bawang.R;
+import com.merah.bawang.recyclerviewposts.ItemPostContent;
 
 import java.util.ArrayList;
 

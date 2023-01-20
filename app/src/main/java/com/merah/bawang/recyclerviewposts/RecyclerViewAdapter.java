@@ -1,4 +1,4 @@
-package com.merah.bawang;
+package com.merah.bawang.recyclerviewposts;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.merah.bawang.R;
 
 import java.util.ArrayList;
 

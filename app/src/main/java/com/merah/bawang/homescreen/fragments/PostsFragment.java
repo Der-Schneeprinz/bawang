@@ -12,9 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.merah.bawang.ItemPostContent;
+import com.merah.bawang.recyclerviewposts.ItemPostContent;
 import com.merah.bawang.R;
-import com.merah.bawang.RecyclerViewAdapter;
+import com.merah.bawang.recyclerviewposts.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.merah.bawang;
+package com.merah.bawang.recyclerviewposts;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

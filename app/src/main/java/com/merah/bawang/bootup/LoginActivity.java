@@ -19,7 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.merah.bawang.HomeActivity;
+import com.merah.bawang.recyclerviewposts.HomeActivity;
 import com.merah.bawang.R;
 
 public class LoginActivity extends AppCompatActivity {

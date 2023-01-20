@@ -1,13 +1,14 @@
-package com.merah.bawang;
+package com.merah.bawang.recyclerviewposts;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.View;
+
+import com.merah.bawang.R;
+import com.merah.bawang.recyclerviewposts.ItemPostContent;
+import com.merah.bawang.recyclerviewposts.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 
