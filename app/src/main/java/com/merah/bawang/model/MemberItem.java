@@ -11,21 +11,22 @@ public class MemberItem extends Member {
      *      Profile Picture
      */
 
+    private Member member;
 
     private int memberType;
     private String fullName;
     private int profilePicture;
 
-    public MemberItem(String _MID, String _OID, int memberType, String fullName, int profilePicture) {
-        super(_MID, _OID);
+    public MemberItem(Member member, int memberType, String fullName, int profilePicture) {
+        super(member);
         this.memberType = memberType;
         this.fullName = fullName;
         this.profilePicture = profilePicture;
     }
 
     // TODO: REMOVE OLD CONSTRUCTOR
-    public MemberItem(String _MID, String _OID, int profilePicture, String fullName) {
-        super(_MID, _OID);
+    public MemberItem(Member member, int profilePicture, String fullName) {
+        super(member);
         this.profilePicture = profilePicture;
         this.fullName = fullName;
     }
