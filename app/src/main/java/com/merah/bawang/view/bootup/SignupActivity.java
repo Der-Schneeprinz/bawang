@@ -1,4 +1,4 @@
-package com.merah.bawang.bootup;
+package com.merah.bawang.view.bootup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

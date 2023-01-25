@@ -1,4 +1,4 @@
-package com.merah.bawang.recyclerviewposts;
+package com.merah.bawang.viewmodel.recyclerviewposts;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,17 +12,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.merah.bawang.R;
+import com.merah.bawang.model.Post;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ItemViewHolder> {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.PostViewHolder> {
 
     Context context;
-    ArrayList<ItemPostContent> itemPostContent;
+    ArrayList<Post> post;
 
-    public RecyclerViewAdapter(Context context, ArrayList<ItemPostContent> itemPostContent) {
+    public RecyclerViewAdapter(Context context, ArrayList<Post> post) {
         this.context = context;
-        this.itemPostContent = itemPostContent;
+        this.post = post;
     }
 
     /**
@@ -33,10 +34,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
      */
     @NonNull
     @Override
-    public RecyclerViewAdapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerViewAdapter.PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.item_search_post, parent, false);
-        return new ItemViewHolder(view);
+        return new PostViewHolder(view);
     }
 
     /**
@@ -46,16 +47,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
      * @param position
      */
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewAdapter.ItemViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerViewAdapter.PostViewHolder holder, int position) {
         // conButtons
-        holder.postUpvoteCount.setText(itemPostContent.get(0).getPostUpvotes());
-        holder.postDownvoteCount.setText(itemPostContent.get(0).getPostDownvotes());
+        holder.postUpvoteCount.setText(Integer.toString(post.get(0).getUpvotes()));
+        holder.postDownvoteCount.setText(Integer.toString(post.get(0).getDownvotes()));
         // conUsername
-        holder.postUsername.setText(itemPostContent.get(position).getPostUsername());
-        holder.postOrg.setText(itemPostContent.get(position%2).getPostOrg());
+        holder.postFullName.setText(post.get(position).getFullName());
+        holder.postOrg.setText(post.get(position%2).get_OID());
         // parent
-        holder.postText.setText(itemPostContent.get(0).getPostText());
-        holder.postTitle.setText(itemPostContent.get(0).getPostTitle());
+        holder.postText.setText(post.get(0).getPostText());
+        holder.postTitle.setText(post.get(0).getPostTitle());
     }
 
     /**
@@ -64,14 +65,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
      */
     @Override
     public int getItemCount() {
-        return itemPostContent.size();
+        return post.size();
     }
 
     /**
      * gets all the views from item_search_post.xml file
      * similar to onCreateViewHolder
      */
-    public static class ItemViewHolder extends RecyclerView.ViewHolder {
+    public static class PostViewHolder extends RecyclerView.ViewHolder {
         // conButtons
         ImageButton postUpvote;
         ImageButton postDownvote;
@@ -80,14 +81,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView postDownvoteCount;
         // conUsername
         ImageView postProfile;
-        TextView postUsername;
+        TextView postFullName;
         TextView postInBetween;
         TextView postOrg;
         // parent
         TextView postTitle;
         TextView postText;
 
-        public ItemViewHolder(@androidx.annotation.NonNull View itemView) {
+        public PostViewHolder(@androidx.annotation.NonNull View itemView) {
             super(itemView);
 
             // conButtons
@@ -98,7 +99,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             postDownvoteCount = itemView.findViewById(R.id.tvDownvoteCounter);
             // conUsername
             postProfile = itemView.findViewById(R.id.ivProfile);
-            postUsername = itemView.findViewById(R.id.tvUsername);
+            postFullName = itemView.findViewById(R.id.tvUsername);
             postInBetween = itemView.findViewById(R.id.tvIn);
             postOrg = itemView.findViewById(R.id.tvOrg);
             // parent

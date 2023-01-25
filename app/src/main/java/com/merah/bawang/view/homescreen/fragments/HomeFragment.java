@@ -1,4 +1,4 @@
-package com.merah.bawang.homescreen.fragments;
+package com.merah.bawang.view.homescreen.fragments;
 
 import android.os.Bundle;
 
@@ -12,16 +12,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.merah.bawang.recyclerviewposts.ItemPostContent;
+import com.merah.bawang.model.Post;
 import com.merah.bawang.R;
-import com.merah.bawang.recyclerviewposts.RecyclerViewAdapter;
+import com.merah.bawang.viewmodel.recyclerviewposts.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView;
-    ArrayList<ItemPostContent> itemPostContent = new ArrayList<ItemPostContent>();
+    ArrayList<Post> itemPostContent = new ArrayList<Post>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,13 +54,13 @@ public class HomeFragment extends Fragment {
         String[] postUsername = getResources().getStringArray(R.array.saUsernames);
         String[] postOrg = getResources().getStringArray(R.array.saOrgs);
         for(int i = 0; i < postUsername.length;i++){
-            itemPostContent.add(new ItemPostContent(
-                    postUsername[i],
+            itemPostContent.add(new Post(
                     postOrg[i%2],
+                    postUsername[i],
                     getResources().getString(R.string.postText),
                     getResources().getString(R.string.postTitle),
-                    "0",
-                    "0",
+                    0,
+                    0,
                     R.drawable.ic_baseline_account_circle_24
             ));
         }

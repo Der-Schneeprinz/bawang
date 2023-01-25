@@ -1,17 +1,17 @@
-package com.merah.bawang.recyclerviewposts;
+package com.merah.bawang.viewmodel.recyclerviewposts;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
 import com.merah.bawang.R;
-import com.merah.bawang.recyclerviewposts.ItemPostContent;
+import com.merah.bawang.model.Post;
 
 import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity {
 
-    ArrayList<ItemPostContent>  itemPostcontents = new ArrayList<ItemPostContent>();
+    ArrayList<Post>  itemPostcontents = new ArrayList<Post>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +28,13 @@ public class SearchActivity extends AppCompatActivity {
 
         //This is supposed to be sql query
         for(int i = 0; i < postUsernames.length; i++ ) {
-            itemPostcontents.add(new ItemPostContent(
+            itemPostcontents.add(new Post(
                     postUsernames[i],
                     postOrgs[i%2],
                     postTexts[0],
                     postTitles[0],
-                    "0",
-                    "0",
+                    0,
+                    0,
                     R.drawable.ic_baseline_account_circle_24
             ));
         }

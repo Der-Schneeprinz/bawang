@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.merah.bawang.recyclerviewposts.DiscoverActivity;
-import com.merah.bawang.recyclerviewposts.HomeActivity;
+import com.merah.bawang.viewmodel.recyclerviewposts.DiscoverActivity;
+import com.merah.bawang.viewmodel.recyclerviewposts.HomeActivity;
 
 public class TopBarMethods extends AppCompatActivity {
 

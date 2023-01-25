@@ -1,4 +1,4 @@
-package com.merah.bawang.recyclerviewposts;
+package com.merah.bawang.viewmodel.recyclerviewposts;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.merah.bawang.R;
-import com.merah.bawang.recyclerviewposts.ItemPostContent;
-import com.merah.bawang.recyclerviewposts.RecyclerViewAdapter;
+import com.merah.bawang.model.Post;
 
 import java.util.ArrayList;
 
@@ -16,7 +15,7 @@ public class HomeActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     RecyclerViewAdapter recyclerViewAdapter;
-    ArrayList<ItemPostContent> itemPostContent = new ArrayList<ItemPostContent>();
+    ArrayList<Post> itemPostContent = new ArrayList<Post>();
     boolean isLoading = false;
 
     @Override
@@ -38,13 +37,13 @@ public class HomeActivity extends AppCompatActivity {
         String[] postUsername = getResources().getStringArray(R.array.saUsernames);
         String[] postOrg = getResources().getStringArray(R.array.saOrgs);
         for(int i = 0; i < postUsername.length;i++){
-            itemPostContent.add(new ItemPostContent(
+            itemPostContent.add(new Post(
                     postUsername[i],
                     postOrg[i%2],
                     getResources().getString(R.string.postText),
                     getResources().getString(R.string.postTitle),
-                    "0",
-                    "0",
+                    0,
+                    0,
                     R.drawable.ic_baseline_account_circle_24
             ));
         }

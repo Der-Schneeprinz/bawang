@@ -1,4 +1,4 @@
-package com.merah.bawang.organizationprofile;
+package com.merah.bawang.viewmodel.recyclerviewmembers;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.merah.bawang.R;
+import com.merah.bawang.model.Member;
 
 import java.util.ArrayList;
 
@@ -36,7 +37,7 @@ public class OrgMemberItemHandler extends RecyclerView.Adapter<OrgMemberItemHand
     public void onBindViewHolder(@NonNull OrgMemberItemHandler.ViewHolder holder, int position) {
         Member member = membersList.get(position);
         holder.fullName.setText(member.getFullName());
-        holder.profile.setImageResource(member.getProfile());
+        holder.profile.setImageResource(member.getProfilePicture());
     }
 
     @Override

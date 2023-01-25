@@ -1,13 +1,13 @@
-package com.merah.bawang.recyclerviewposts;
+package com.merah.bawang.viewmodel.recyclerviewposts;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.merah.bawang.homescreen.fragments.OrgsFragment;
-import com.merah.bawang.homescreen.fragments.PostsFragment;
-import com.merah.bawang.homescreen.fragments.ProfileFragment;
+import com.merah.bawang.view.homescreen.fragments.OrgsFragment;
+import com.merah.bawang.view.homescreen.fragments.PostsFragment;
+import com.merah.bawang.view.homescreen.fragments.ProfileFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
 

@@ -13,21 +13,21 @@
         android:theme="@style/Theme.Bawang"
         tools:targetApi="28">
         <activity
-            android:name=".organizationprofile.OrganizationProfileActivity"
+            android:name=".viewmodel.recyclerviewmembers.OrganizationProfileActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".homescreen.MainFragmentHandlerActivity"
+            android:name=".view.homescreen.MainFragmentHandlerActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".recyclerviewposts.SearchActivity"
+            android:name=".viewmodel.recyclerviewposts.SearchActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -41,31 +41,31 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".recyclerviewposts.DiscoverActivity"
+            android:name=".viewmodel.recyclerviewposts.DiscoverActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".recyclerviewposts.HomeActivity"
+            android:name=".viewmodel.recyclerviewposts.HomeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".bootup.SignupActivity"
+            android:name=".view.bootup.SignupActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".bootup.LoginActivity"
+            android:name=".view.bootup.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".bootup.MainActivity"
+            android:name=".view.bootup.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

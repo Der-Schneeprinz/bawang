@@ -1,4 +1,4 @@
-package com.merah.bawang.recyclerviewposts;
+package com.merah.bawang.viewmodel.recyclerviewposts;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
@@ -7,7 +7,6 @@ import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
 import com.merah.bawang.R;
-import com.merah.bawang.recyclerviewposts.ViewPagerAdapter;
 
 public class DiscoverActivity extends AppCompatActivity {
 

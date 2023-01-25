@@ -1,4 +1,4 @@
-package com.merah.bawang.bootup;
+package com.merah.bawang.view.bootup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.merah.bawang.R;
-import com.merah.bawang.homescreen.MainFragmentHandlerActivity;
+import com.merah.bawang.view.homescreen.MainFragmentHandlerActivity;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.merah.bawang.organizationprofile;
+package com.merah.bawang.viewmodel.recyclerviewmembers;
 
 import android.os.Bundle;
 
@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.merah.bawang.R;
+import com.merah.bawang.model.Member;
 
 import java.util.ArrayList;
 
