@@ -12,13 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.merah.bawang.R;
-import com.merah.bawang.model.Member;
+import com.merah.bawang.model.MemberItem;
 
 import java.util.ArrayList;
 
 public class MembersFragment extends Fragment {
 
-    private ArrayList<Member> membersList;
+    private ArrayList<MemberItem> membersList;
     private RecyclerView recyclerview;
 
 
@@ -45,7 +45,9 @@ public class MembersFragment extends Fragment {
         membersList = new ArrayList<>();
         String[] orgUsername = getResources().getStringArray(R.array.saUsernames);
         for(int i = 0; i < orgUsername.length;i++){
-            membersList.add(new Member(
+            membersList.add(new MemberItem(
+                    "",
+                    "",
                     R.drawable.ic_baseline_account_circle_24,
                     orgUsername[i]
             ));

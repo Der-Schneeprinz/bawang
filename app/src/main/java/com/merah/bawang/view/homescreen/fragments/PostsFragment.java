@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.merah.bawang.model.Post;
+import com.merah.bawang.model.PostItem;
 import com.merah.bawang.R;
 import com.merah.bawang.viewmodel.recyclerviewposts.RecyclerViewAdapter;
 
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class PostsFragment extends Fragment {
 
     RecyclerView recyclerView;
-    ArrayList<Post> itemPostContent = new ArrayList<Post>();
+    ArrayList<PostItem> itemPostContentItem = new ArrayList<PostItem>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class PostsFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(getContext(), itemPostContent);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(getContext(), itemPostContentItem);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
@@ -54,7 +54,8 @@ public class PostsFragment extends Fragment {
         String[] postUsername = getResources().getStringArray(R.array.saUsernames);
         String[] postOrg = getResources().getStringArray(R.array.saOrgs);
         for(int i = 0; i < postUsername.length;i++){
-            itemPostContent.add(new Post(
+            itemPostContentItem.add(new PostItem(
+                    "",
                     postUsername[i],
                     postOrg[i%2],
                     getResources().getString(R.string.postText),

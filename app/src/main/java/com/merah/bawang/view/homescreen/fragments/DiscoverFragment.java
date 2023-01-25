@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -13,15 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.merah.bawang.R;
-import com.merah.bawang.model.Post;
-import com.merah.bawang.viewmodel.recyclerviewposts.RecyclerViewAdapter;
+import com.merah.bawang.model.PostItem;
 
 import java.util.ArrayList;
 
 public class DiscoverFragment extends Fragment {
 
     RecyclerView recyclerView;
-    ArrayList<Post> posts = new ArrayList<>();
+    ArrayList<PostItem> postItems = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,7 +53,8 @@ public class DiscoverFragment extends Fragment {
         String[] postUsername = getResources().getStringArray(R.array.saUsernames);
         String[] postOrg = getResources().getStringArray(R.array.saOrgs);
         for(int i = 0; i < postUsername.length;i++){
-            posts.add(new Post(
+            postItems.add(new PostItem(
+                    "",
                     postUsername[i],
                     postOrg[i%2],
                     getResources().getString(R.string.postText),

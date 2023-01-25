@@ -11,16 +11,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.merah.bawang.R;
-import com.merah.bawang.model.Member;
+import com.merah.bawang.model.MemberItem;
 
 import java.util.ArrayList;
 
 public class OrgMemberItemHandler extends RecyclerView.Adapter<OrgMemberItemHandler.ViewHolder> {
 
     Context context;
-    ArrayList<Member> membersList;
+    ArrayList<MemberItem> membersList;
 
-    public OrgMemberItemHandler(Context context, ArrayList<Member> membersList) {
+    public OrgMemberItemHandler(Context context, ArrayList<MemberItem> membersList) {
         this.context = context;
         this.membersList = membersList;
     }
@@ -35,9 +35,9 @@ public class OrgMemberItemHandler extends RecyclerView.Adapter<OrgMemberItemHand
 
     @Override
     public void onBindViewHolder(@NonNull OrgMemberItemHandler.ViewHolder holder, int position) {
-        Member member = membersList.get(position);
-        holder.fullName.setText(member.getFullName());
-        holder.profile.setImageResource(member.getProfilePicture());
+        MemberItem memberItem = membersList.get(position);
+        holder.fullName.setText(memberItem.getFullName());
+        holder.profile.setImageResource(memberItem.getProfilePicture());
     }
 
     @Override

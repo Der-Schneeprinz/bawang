@@ -12,18 +12,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.merah.bawang.R;
-import com.merah.bawang.model.Post;
+import com.merah.bawang.model.PostItem;
 
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.PostViewHolder> {
 
     Context context;
-    ArrayList<Post> post;
+    ArrayList<PostItem> postItem;
 
-    public RecyclerViewAdapter(Context context, ArrayList<Post> post) {
+    public RecyclerViewAdapter(Context context, ArrayList<PostItem> postItem) {
         this.context = context;
-        this.post = post;
+        this.postItem = postItem;
     }
 
     /**
@@ -49,14 +49,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.PostViewHolder holder, int position) {
         // conButtons
-        holder.postUpvoteCount.setText(Integer.toString(post.get(0).getUpvotes()));
-        holder.postDownvoteCount.setText(Integer.toString(post.get(0).getDownvotes()));
+        holder.postUpvoteCount.setText(Integer.toString(postItem.get(0).getUpvotes()));
+        holder.postDownvoteCount.setText(Integer.toString(postItem.get(0).getDownvotes()));
         // conUsername
-        holder.postFullName.setText(post.get(position).getFullName());
-        holder.postOrg.setText(post.get(position%2).get_OID());
+        holder.postFullName.setText(postItem.get(position).getFullName());
+        holder.postOrg.setText(postItem.get(position%2).get_OID());
         // parent
-        holder.postText.setText(post.get(0).getPostText());
-        holder.postTitle.setText(post.get(0).getPostTitle());
+        holder.postText.setText(postItem.get(0).getPostText());
+        holder.postTitle.setText(postItem.get(0).getPostTitle());
     }
 
     /**
@@ -65,7 +65,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
      */
     @Override
     public int getItemCount() {
-        return post.size();
+        return postItem.size();
     }
 
     /**

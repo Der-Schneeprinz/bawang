@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.merah.bawang.R;
-import com.merah.bawang.model.Post;
+import com.merah.bawang.model.PostItem;
 
 import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity {
 
-    ArrayList<Post>  itemPostcontents = new ArrayList<Post>();
+    ArrayList<PostItem>  itemPostcontents = new ArrayList<PostItem>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,8 @@ public class SearchActivity extends AppCompatActivity {
 
         //This is supposed to be sql query
         for(int i = 0; i < postUsernames.length; i++ ) {
-            itemPostcontents.add(new Post(
+            itemPostcontents.add(new PostItem(
+                    "",
                     postUsernames[i],
                     postOrgs[i%2],
                     postTexts[0],

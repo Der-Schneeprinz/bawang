@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.merah.bawang.R;
-import com.merah.bawang.model.Post;
+import com.merah.bawang.model.PostItem;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ public class HomeActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     RecyclerViewAdapter recyclerViewAdapter;
-    ArrayList<Post> itemPostContent = new ArrayList<Post>();
+    ArrayList<PostItem> itemPostContentItem = new ArrayList<PostItem>();
     boolean isLoading = false;
 
     @Override
@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         setUpItemPostContent();
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, itemPostContent);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, itemPostContentItem);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -37,7 +37,8 @@ public class HomeActivity extends AppCompatActivity {
         String[] postUsername = getResources().getStringArray(R.array.saUsernames);
         String[] postOrg = getResources().getStringArray(R.array.saOrgs);
         for(int i = 0; i < postUsername.length;i++){
-            itemPostContent.add(new Post(
+            itemPostContentItem.add(new PostItem(
+                    "",
                     postUsername[i],
                     postOrg[i%2],
                     getResources().getString(R.string.postText),
