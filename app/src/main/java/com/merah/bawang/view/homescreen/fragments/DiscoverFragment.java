@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class DiscoverFragment extends Fragment {
 
     RecyclerView recyclerView;
-    ArrayList<Post> itemPostContent = new ArrayList<>();
+    ArrayList<Post> posts = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class DiscoverFragment extends Fragment {
         //recyclerView = view.findViewById(R.id.recyclerView);
         //recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         //recyclerView.setHasFixedSize(true);
-        //RecyclerViewAdapter adapter = new RecyclerViewAdapter(getActivity(), itemPostContent);
+        //RecyclerViewAdapter adapter = new RecyclerViewAdapter(getActivity(), posts);
         //recyclerView.setAdapter(adapter);
         //adapter.notifyDataSetChanged();
     }
@@ -55,7 +55,7 @@ public class DiscoverFragment extends Fragment {
         String[] postUsername = getResources().getStringArray(R.array.saUsernames);
         String[] postOrg = getResources().getStringArray(R.array.saOrgs);
         for(int i = 0; i < postUsername.length;i++){
-            itemPostContent.add(new Post(
+            posts.add(new Post(
                     postUsername[i],
                     postOrg[i%2],
                     getResources().getString(R.string.postText),
