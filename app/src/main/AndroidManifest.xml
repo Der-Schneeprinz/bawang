@@ -13,6 +13,15 @@
         android:theme="@style/Theme.Bawang"
         tools:targetApi="28">
         <activity
+            android:name=".view.createpost.CreatePostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.viewpost.CommentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.viewpost.ViewPostActivity"
+            android:exported="false" />
+        <activity
             android:name=".viewmodel.recyclerviewmembers.OrganizationProfileActivity"
             android:exported="false">
             <meta-data

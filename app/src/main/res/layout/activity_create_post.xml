@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.createpost.CreatePostActivity">
+
+    <RelativeLayout
+        style="@style/TopBar"
+        android:id="@+id/conTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            style="@style/TopBarBackButton"
+            android:id="@+id/ibBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="BackButton"
+            app:srcCompat="@drawable/baseline_arrow_back_ios_new_24_yellow" />
+
+        <TextView
+            style="@style/TopBarTitle"
+            android:id="@+id/tvCreatePost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/btnPost"
+            android:layout_toEndOf="@+id/ibBackButton"
+            android:layout_centerVertical="true"
+            android:text="Create a Post"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            style="@style/CreatePostPostBtn"
+            android:id="@+id/btnPost"
+            android:layout_width="75sp"
+            android:layout_height="34sp"
+            android:textSize="13sp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="POST" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        style="@style/CreatePostLayout"
+        android:id="@+id/conCreatePost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/conTopBar"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Spinner
+            style="@style/PostViewOrg"
+            android:id="@+id/tvPostOrg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/postOrg"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <EditText
+            android:id="@+id/tvPostTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Title"
+            app:layout_constraintTop_toBottomOf="@+id/tvPostOrg"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/tvPostBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:lines="15"
+            android:maxLines="@null"
+            android:background="@android:color/transparent"
+            android:gravity="top"
+            android:hint="Type your body here."
+            app:layout_constraintTop_toBottomOf="@id/tvPostTitle"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Button
+            android:id="@+id/btnMedia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/baseline_add_photo_alternate_24"
+            android:drawableTint="@color/white"
+            android:text="Add image"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

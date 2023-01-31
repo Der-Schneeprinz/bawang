@@ -6,18 +6,17 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
-import com.merah.bawang.R;
 
 public class DiscoverActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager2 viewPager2;
-    ViewPagerAdapter viewPagerAdapter;
+    ViewPagerAdapterDiscoverPage viewPagerAdapterDiscoverPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_discover);
+        /*setContentView(R.layout.activity_discover);
 
         tabLayout = findViewById(R.id.tabsLayout);
         viewPager2 = findViewById(R.id.vpTab);
@@ -49,7 +48,7 @@ public class DiscoverActivity extends AppCompatActivity {
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels);
                 tabLayout.getTabAt(position).select();
             }
-        });
+        });*/
     }
 
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llVotes"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        style="@style/TextCounter"
+        android:id="@+id/tvUpvoteCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/postUpvoteCounter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ibUpvote"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvDownvoteCounter" />
+
+    <TextView
+        style="@style/TextCounter"
+        android:id="@+id/tvDownvoteCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/postDownvoteCounter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ibDownvote"
+        app:layout_constraintTop_toBottomOf="@+id/tvUpvoteCounter" />
+
+    <ImageButton
+        style="@style/PostButton"
+        android:id="@+id/ibUpvote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Upvote"
+        android:background="@null"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvUpvoteCounter"
+        app:srcCompat="@drawable/ic_baseline_thumb_up_off_alt_24" />
+
+    <ImageButton
+        style="@style/PostButton"
+        android:id="@+id/ibDownvote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Downvote"
+        android:background="@null"
+        app:layout_constraintTop_toBottomOf="@+id/ibUpvote"
+        app:layout_constraintStart_toEndOf="@+id/tvDownvoteCounter"
+        app:srcCompat="@drawable/ic_baseline_thumb_down_off_alt_24"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

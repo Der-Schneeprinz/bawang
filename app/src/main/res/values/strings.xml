@@ -16,6 +16,7 @@
     <string name="postTitle">NO TITLE</string>
     <string name="postUpvoteCounter">0</string>
     <string name="postDownvoteCounter">0</string>
+    <string name="postComment">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
     <string-array name="saUsernames">
         <item>John_Doe</item>
         <item>Joan_Doe</item>

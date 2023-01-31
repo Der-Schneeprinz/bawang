@@ -45,11 +45,11 @@ public class MembersFragment extends Fragment {
     private void setUpMembersItems() {
         membersList = new ArrayList<>();
         String[] orgUsername = getResources().getStringArray(R.array.saUsernames);
-        for (String s : orgUsername) {
+        for (String morgUsername : orgUsername) {
             membersList.add(new MemberItem(
-                    new Member("", "", ""),
+                    new Member("", ""),
                     R.drawable.ic_baseline_account_circle_24,
-                    s
+                    morgUsername
             ));
         }
 

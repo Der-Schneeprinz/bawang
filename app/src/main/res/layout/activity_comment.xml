@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardElevation="6sp"
+    app:cardUseCompatPadding="true">
+
+  <LinearLayout
+      style="@style/PostViewComment"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/llCommentUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+      <ImageView
+          style="@style/PostViewProfilePic"
+          android:id="@+id/ivCommentProfilePic"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+
+      <TextView
+          style="@style/PostViewFullName"
+          android:id="@+id/tvCommentFullName"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/postUsername"/>
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/PostViewCommentText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/postComment"/>
+
+  </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,16 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/eachCardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="8sp"
-    app:cardUseCompatPadding="true" >
+    app:cardElevation="6sp"
+    app:cardUseCompatPadding="true">
 
-    <TextView
-        android:id="@+id/tvItem"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/Posts"
+        android:id="@+id/postCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16sp"
-        android:text="Item X" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/conButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                style="@style/TextCounter"
+                android:id="@+id/tvUpvoteCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/postUpvoteCounter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ibUpvote"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tvDownvoteCounter" />
+
+            <TextView
+                style="@style/TextCounter"
+                android:id="@+id/tvDownvoteCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/postDownvoteCounter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ibDownvote"
+                app:layout_constraintTop_toBottomOf="@+id/tvUpvoteCounter"
+                app:layout_constraintBottom_toTopOf="@+id/ibComment" />
+
+            <ImageButton
+                style="@style/PostButton"
+                android:id="@+id/ibUpvote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Upvote"
+                android:background="@null"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvUpvoteCounter"
+                app:srcCompat="@drawable/ic_baseline_thumb_up_off_alt_24" />
+
+            <ImageButton
+                style="@style/PostButton"
+                android:id="@+id/ibDownvote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Downvote"
+                android:background="@null"
+                app:layout_constraintTop_toBottomOf="@+id/ibUpvote"
+                app:layout_constraintStart_toEndOf="@+id/tvDownvoteCounter"
+                app:srcCompat="@drawable/ic_baseline_thumb_down_off_alt_24"/>
+
+            <ImageButton
+                style="@style/PostButton"
+                android:id="@+id/ibComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Add a Comment"
+                android:background="@null"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ibDownvote"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvDownvoteCounter"
+                app:srcCompat="@drawable/ic_baseline_add_comment_24"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/conUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/conButtons"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                style="@style/PostProfile"
+                android:id="@+id/ivProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Profile Picture"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvUsername"
+                app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+
+            <TextView
+                style="@style/TextUsername"
+                android:id="@+id/tvUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/postUsername"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                style="@style/TextInBetween"
+                android:id="@+id/tvIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvUsername"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvOrg"/>
+
+            <TextView
+                style="@style/TextOrg"
+                android:id="@+id/tvOrg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/postOrg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvIn"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            style="@style/TextTitle"
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/postTitle"
+            app:layout_constraintStart_toEndOf="@+id/conButtons"
+            app:layout_constraintTop_toBottomOf="@+id/conUser" />
+
+        <TextView
+            style="@style/TextPost"
+            android:id="@+id/tvPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/postText"
+            app:layout_constraintStart_toEndOf="@+id/conButtons"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
