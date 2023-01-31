@@ -1,13 +1,37 @@
 package com.merah.bawang.model;
 
-public class Comment {
+public class Comment extends Post {
+    /**
+     * Table User
+     * 	_UID
+     *
+     * Table Organization
+     * 	_OID
+     *
+     * Table Member
+     * 	_UID
+     * 	_OID
+     *
+     * Table Posts
+     * 	_OID
+     * 	_PID
+     *
+     * Table Comment
+     * 	_OID
+     * 	_PID
+     */
 
     private String _CID;    // Primary Key
-    private String _PID;    // Foreign Key
 
-    public Comment(String _CID, String _PID) {
+    public Comment(String _PID, String _OID, String _CID) {
+        super(_PID, _OID);
         this._CID = _CID;
-        this._PID = _PID;
+    }
+
+    // Copy Constructor
+    public Comment(Comment comment) {
+        super(comment.get_PID(), comment.get_OID());
+        this._CID = comment._CID;
     }
 
     // GETTERS
@@ -16,7 +40,4 @@ public class Comment {
         return _CID;
     }
 
-    public String get_PID() {
-        return _PID;
-    }
 }

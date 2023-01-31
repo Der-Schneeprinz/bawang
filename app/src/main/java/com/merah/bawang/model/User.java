@@ -8,6 +8,7 @@ public class User {
         this._UID = _UID;
     }
 
+    // Copy Constructor
     public User(User user) {
         this(user._UID);
     }

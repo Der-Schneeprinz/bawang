@@ -11,15 +11,11 @@ public class MemberItem extends Member {
      *      Profile Picture
      */
 
-    private Member member;
-
-    private int memberType;
     private String fullName;
     private int profilePicture;
 
-    public MemberItem(Member member, int memberType, String fullName, int profilePicture) {
+    public MemberItem(Member member, String fullName, int profilePicture) {
         super(member);
-        this.memberType = memberType;
         this.fullName = fullName;
         this.profilePicture = profilePicture;
     }
@@ -33,10 +29,6 @@ public class MemberItem extends Member {
 
     // SETTERS
 
-    public void setMemberType(int memberType) {
-        this.memberType = memberType;
-    }
-
     public void setProfilePicture(int profilePicture) {
         this.profilePicture = profilePicture;
     }
@@ -46,17 +38,8 @@ public class MemberItem extends Member {
     }
 
     // GETTERS
-
-    public String get_MID() {
-        return super.get_MID();
-    }
-
     public String get_OID() {
         return super.get_OID();
-    }
-
-    public int getMemberType() {
-        return memberType;
     }
 
     public int getProfilePicture() {

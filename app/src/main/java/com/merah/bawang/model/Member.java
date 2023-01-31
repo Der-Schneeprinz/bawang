@@ -2,26 +2,23 @@ package com.merah.bawang.model;
 
 public class Member extends User {
 
-    // Entities for Member Type
-    private final static int USER = 0;
-    private final static int PENDING = 1;
-    private final static int MEMBER = 2;
-    private final static int MODERATOR = 3;
-    private final static int ADMIN = 4;
+    private enum MemberType{
+        MEMBER,
+        MODERATOR,
+        ADMIN
+    }
 
-    // Multiple key thing
-    private String _MID;    // Primary Key
     private String _OID;    // Foreign Key
+    private MemberType memberType;
 
-    public Member(String _UID, String _MID, String _OID) {
+    public Member(String _UID, String _OID) {
         super(_UID);
-        this._MID = _MID;
         this._OID = _OID;
     }
 
+    // Copy Constructor
     public Member(Member member) {
         super(member.get_UID());
-        _MID = member._MID;
         _OID = member._OID;
     }
 
@@ -30,9 +27,6 @@ public class Member extends User {
         return super.get_UID();
     }
 
-    public String get_MID() {
-        return _MID;
-    }
 
     public String get_OID() {
         return _OID;

@@ -14,9 +14,17 @@ public class UserItem extends User {
      *      Password
      *      Profile Picture
      *      Student No.
+     *      Sex
      *      _OID <List>
      *      Following (_OID) <List>
      */
+
+    private enum SexType {
+        FEMALE,
+        MALE
+    }
+
+    User user;
 
     // Full Name
     private String firstName;
@@ -29,11 +37,12 @@ public class UserItem extends User {
     // Others
     private int profilePicture;
     private String studentNo;
+    private SexType sexType;
     private ArrayList<String> _OID;
     private ArrayList<String> following;
 
-    private UserItem(User user, String firstName, String middleName, String lastName, String email, String password, int profilePicture, String studentNo, ArrayList<String> oid, ArrayList<String> following) {
-        super(user.get_UID());
+    private UserItem(String _UID, String firstName, String middleName, String lastName, String email, String password, int profilePicture, String studentNo, SexType sexType, ArrayList<String> _OID, ArrayList<String> following) {
+        super(_UID);
         // Full Name
         this.firstName = firstName;
         this.middleName = middleName;
@@ -45,8 +54,24 @@ public class UserItem extends User {
         // Others
         this.profilePicture = profilePicture;
         this.studentNo = studentNo;
-        _OID = oid;
+        this.sexType = sexType;
+        this._OID = _OID;
         this.following = following;
+    }
+
+    // Copy Constructor
+    private UserItem(UserItem userItem) {
+        super(userItem.user);
+        this.firstName = userItem.firstName;
+        this.middleName = userItem.middleName;
+        this.lastName = userItem.lastName;
+        this.email = userItem.email;
+        this.password = userItem.password;
+        this.profilePicture = userItem.profilePicture;
+        this.studentNo = userItem.studentNo;
+        this.sexType = userItem.sexType;
+        this._OID = userItem._OID;
+        this.following = userItem.following;
     }
 
     // SETTERS
@@ -81,6 +106,10 @@ public class UserItem extends User {
 
     public void setStudentNo(String studentNo) {
         this.studentNo = studentNo;
+    }
+
+    public void setSexType(SexType sexType) {
+        this.sexType = sexType;
     }
 
     public void set_OID(ArrayList<String> _OID) {
@@ -127,6 +156,10 @@ public class UserItem extends User {
 
     public String getStudentNo() {
         return studentNo;
+    }
+
+    public SexType getSexType() {
+        return sexType;
     }
 
     public ArrayList<String> get_OID() {

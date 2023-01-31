@@ -10,6 +10,10 @@ public class Post {
         this._OID = _OID;
     }
 
+    public Post(Post post) {
+        this(post._PID, post._OID);
+    }
+
     // GETTERS
 
     public String get_PID() {

@@ -11,12 +11,14 @@ public class CommentItem extends Comment{
      *      Profile Picture
      */
 
+    Comment comment;
+
     private String fullName;
     private String commentText;
     private int profilePicture;
 
-    public CommentItem(String _CID, String _PID, String fullName, String commentText, int profilePicture) {
-        super(_CID, _PID);
+    public CommentItem(Comment comment, String fullName, String commentText, int profilePicture) {
+        super(comment);
         this.fullName = fullName;
         this.commentText = commentText;
         this.profilePicture = profilePicture;
