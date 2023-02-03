@@ -7,47 +7,27 @@
     android:background="@drawable/bg_login"
     tools:context=".view.bootup.SignupActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/conTop"
+        <include
+            android:id="@id/conTop"
             android:layout_width="match_parent"
-            android:layout_height="0sp"
-            android:background="@color/maroon_1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="wrap_content"
+            layout="@layout/item_startup_logo" />
+
+        <LinearLayout
+            style="@style/StartupConBot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
             <TextView
-                android:id="@+id/tvLogo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textColor="@color/yellow_1"
-                android:textSize="60sp"
-                android:textStyle="bold"
-                android:paddingVertical="5sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/conBot"
-            android:layout_width="380sp"
-            android:layout_height="0sp"
-            app:layout_constraintHeight_percent="0.88"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/conTop">
-
-            <TextView
-                style="@style/NormalText"
+                style="@style/StartupGreetingText"
                 android:id="@+id/tvGreetings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,91 +49,79 @@
                 app:tint="@color/yellow_2" />
 
             <EditText
-                style="@style/NormalEditText"
+                style="@style/StartupEditTextField"
                 android:id="@+id/etFirstName"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:ems="10"
                 android:hint="First Name"
                 android:inputType="text"
-                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/drawerIndicator" />
 
             <EditText
-                style="@style/NormalEditText"
+                style="@style/StartupEditTextField"
                 android:id="@+id/etMidName"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:ems="10"
                 android:hint="Middle Name"
                 android:inputType="text"
-                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etFirstName" />
 
             <EditText
-                style="@style/NormalEditText"
+                style="@style/StartupEditTextField"
                 android:id="@+id/etLastName"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:ems="10"
                 android:hint="Last Name"
                 android:inputType="text"
-                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etMidName" />
 
             <EditText
-                style="@style/NormalEditText"
+                style="@style/StartupEditTextField"
                 android:id="@+id/etEmail"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:ems="10"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etLastName" />
 
             <EditText
-                style="@style/NormalEditText"
+                style="@style/StartupEditTextField"
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:ems="10"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
             <EditText
-                style="@style/NormalEditText"
+                style="@style/StartupEditTextField"
                 android:id="@+id/etStudentNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:ems="10"
                 android:hint="Student Number"
                 android:inputType="text"
-                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
             <Spinner
-                style="@style/NormalSpinner"
+                style="@style/StartupSpinner"
                 android:id="@+id/spSex"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -168,14 +136,14 @@
             <CheckBox
                 style="@style/NormalCheckbox"
                 android:id="@+id/cbAgreement"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="I agree to the Terms of Service of Org Search"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spSex" />
 
             <androidx.appcompat.widget.AppCompatButton
-                style="@style/NormalButton"
+                style="@style/StartupPrimaryButton"
                 android:id="@+id/btnSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -186,7 +154,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/cbAgreement"/>
 
             <androidx.appcompat.widget.AppCompatButton
-                style="@style/SecondaryButton"
+                style="@style/StartupSecondaryButton"
                 android:id="@+id/tvLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -196,7 +164,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
 </ScrollView>

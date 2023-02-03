@@ -44,7 +44,6 @@ public class HomeActivity extends AppCompatActivity {
                     getResources().getString(R.string.postText),
                     getResources().getString(R.string.postTitle),
                     0,
-                    0,
                     R.drawable.ic_baseline_account_circle_24
             ));
         }

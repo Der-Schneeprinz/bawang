@@ -36,7 +36,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public RecyclerViewAdapter.PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.item_post, parent, false);
+        View view = inflater.inflate(R.layout.item_post_noimage, parent, false);
         return new PostViewHolder(view);
     }
 
@@ -50,7 +50,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.PostViewHolder holder, int position) {
         // conButtons
         holder.postUpvoteCount.setText(Integer.toString(postItem.get(0).getUpvotes()));
-        holder.postDownvoteCount.setText(Integer.toString(postItem.get(0).getDownvotes()));
         // conUsername
         holder.postFullName.setText(postItem.get(position).getFullName());
         holder.postOrg.setText(postItem.get(position%2).get_OID());
@@ -75,10 +74,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public static class PostViewHolder extends RecyclerView.ViewHolder {
         // conButtons
         ImageButton postUpvote;
-        ImageButton postDownvote;
         ImageButton postComment;
         TextView postUpvoteCount;
-        TextView postDownvoteCount;
         // conUsername
         ImageView postProfile;
         TextView postFullName;
@@ -93,10 +90,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
             // conButtons
             postUpvote = itemView.findViewById(R.id.ibUpvote);
-            postDownvote = itemView.findViewById(R.id.ibDownvote);
             postComment = itemView.findViewById(R.id.ibComment);
             postUpvoteCount = itemView.findViewById(R.id.tvUpvoteCounter);
-            postDownvoteCount = itemView.findViewById(R.id.tvDownvoteCounter);
             // conUsername
             postProfile = itemView.findViewById(R.id.ivProfile);
             postFullName = itemView.findViewById(R.id.tvUsername);
@@ -105,6 +100,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             // parent
             postTitle = itemView.findViewById(R.id.tvTitle);
             postText = itemView.findViewById(R.id.tvPost);
+        }
+    }
+
+    class ProgressViewHolder extends PostViewHolder {
+        public ProgressViewHolder(View itemView) {
+            super(itemView);
         }
     }
 }

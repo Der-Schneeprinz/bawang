@@ -46,10 +46,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/conDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/tvProfileEmail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" >
@@ -65,6 +66,12 @@
 
             <TextView
                 style="@style/ProfileDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" &#8226; "/>
+
+            <TextView
+                style="@style/ProfileDetails"
                 android:id="@+id/tvDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,14 +81,20 @@
 
             <TextView
                 style="@style/ProfileDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" &#8226; "/>
+
+            <TextView
+                style="@style/ProfileDetails"
                 android:id="@+id/tvStudentID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NO STUDENT ID"
+                android:text="NO STUDENT NO"
                 app:layout_constraintStart_toEndOf="@+id/tvDate"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/drawerIndicator"

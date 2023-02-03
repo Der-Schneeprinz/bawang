@@ -40,24 +40,37 @@
 
     </ScrollView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         style="@style/TopBar"
         android:id="@+id/conTopBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             style="@style/TopBarTitle"
+            android:id="@+id/tvProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Profile"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/btnLogout"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            style="@style/CreatePostPostBtn"
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="35sp"
+            android:layout_alignParentEnd="true"
+            android:text="LOGOUT"/>
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

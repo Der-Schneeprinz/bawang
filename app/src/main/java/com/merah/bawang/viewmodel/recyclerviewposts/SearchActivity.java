@@ -35,7 +35,6 @@ public class SearchActivity extends AppCompatActivity {
                     postTexts[0],
                     postTitles[0],
                     0,
-                    0,
                     R.drawable.ic_baseline_account_circle_24
             ));
         }

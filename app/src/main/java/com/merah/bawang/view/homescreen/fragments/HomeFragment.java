@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.merah.bawang.model.PostItem;
 import com.merah.bawang.R;
@@ -22,6 +23,7 @@ public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView;
     ArrayList<PostItem> itemPostContentItem = new ArrayList<PostItem>();
+    ProgressBar progressBar;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,7 +62,6 @@ public class HomeFragment extends Fragment {
                     postUsername[i],
                     getResources().getString(R.string.postText),
                     getResources().getString(R.string.postTitle),
-                    0,
                     0,
                     R.drawable.ic_baseline_account_circle_24
             ));

@@ -44,7 +44,7 @@
             style="@style/CreatePostPostBtn"
             android:id="@+id/btnPost"
             android:layout_width="75sp"
-            android:layout_height="34sp"
+            android:layout_height="35sp"
             android:textSize="13sp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"

@@ -17,6 +17,7 @@ public class UserItem extends User {
      *      Sex
      *      _OID <List>
      *      Following (_OID) <List>
+     *      Facebook Link
      */
 
     private enum SexType {

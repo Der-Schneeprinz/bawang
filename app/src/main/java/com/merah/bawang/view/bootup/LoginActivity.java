@@ -19,7 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.merah.bawang.viewmodel.recyclerviewposts.HomeActivity;
+import com.merah.bawang.view.homescreen.MainFragmentHandlerActivity;
 import com.merah.bawang.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d("LoginActivity", "signInWithCustomToken:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             //updateUI(user);
-                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                            startActivity(new Intent(LoginActivity.this, MainFragmentHandlerActivity.class));
                             finish();
                         } else {
                             // If sign in fails, display a message to the user.
