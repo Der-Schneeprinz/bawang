@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    RecyclerViewAdapter recyclerViewAdapter;
-    ArrayList<PostItem> itemPostContentItem = new ArrayList<PostItem>();
+    PostAdapter postAdapter;
+    ArrayList<PostItem> itemPostContentItem = new ArrayList<>();
     boolean isLoading = false;
 
     @Override
@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         setUpItemPostContent();
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, itemPostContentItem);
+        PostAdapter adapter = new PostAdapter(this, itemPostContentItem);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

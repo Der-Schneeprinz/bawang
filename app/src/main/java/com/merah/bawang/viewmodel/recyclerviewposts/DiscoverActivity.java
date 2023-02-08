@@ -11,7 +11,7 @@ public class DiscoverActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager2 viewPager2;
-    ViewPagerAdapterDiscoverPage viewPagerAdapterDiscoverPage;
+    DiscoverPageAdapter discoverPageAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
