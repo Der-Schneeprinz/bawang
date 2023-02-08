@@ -15,7 +15,7 @@ import android.widget.ProgressBar;
 
 import com.merah.bawang.model.PostItem;
 import com.merah.bawang.R;
-import com.merah.bawang.viewmodel.recyclerviewposts.RecyclerViewAdapter;
+import com.merah.bawang.viewmodel.recyclerviewposts.PostAdapter;
 
 import java.util.ArrayList;
 
@@ -46,7 +46,7 @@ public class HomeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(getContext(), itemPostContentItem);
+        PostAdapter adapter = new PostAdapter(getContext(), itemPostContentItem);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

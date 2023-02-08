@@ -16,12 +16,12 @@ import com.merah.bawang.model.PostItem;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.PostViewHolder> {
+public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {
 
-    Context context;
-    ArrayList<PostItem> postItem;
+    private Context context;
+    private ArrayList<PostItem> postItem;
 
-    public RecyclerViewAdapter(Context context, ArrayList<PostItem> postItem) {
+    public PostAdapter(Context context, ArrayList<PostItem> postItem) {
         this.context = context;
         this.postItem = postItem;
     }
@@ -34,7 +34,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
      */
     @NonNull
     @Override
-    public RecyclerViewAdapter.PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PostAdapter.PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.item_post_noimage, parent, false);
         return new PostViewHolder(view);
@@ -47,9 +47,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
      * @param position
      */
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewAdapter.PostViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PostAdapter.PostViewHolder holder, int position) {
         // conButtons
-        holder.postUpvoteCount.setText(Integer.toString(postItem.get(0).getUpvotes()));
+        holder.postUpvoteCount.setText(Integer.toString(postItem.get(0).getVotes()));
         // conUsername
         holder.postFullName.setText(postItem.get(position).getFullName());
         holder.postOrg.setText(postItem.get(position%2).get_OID());
@@ -73,17 +73,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
      */
     public static class PostViewHolder extends RecyclerView.ViewHolder {
         // conButtons
-        ImageButton postUpvote;
-        ImageButton postComment;
-        TextView postUpvoteCount;
+        private ImageButton postUpvote;
+        private ImageButton postComment;
+        private TextView postUpvoteCount;
         // conUsername
-        ImageView postProfile;
-        TextView postFullName;
-        TextView postInBetween;
-        TextView postOrg;
+        private ImageView postProfile;
+        private TextView postFullName;
+        private TextView postInBetween;
+        private TextView postOrg;
         // parent
-        TextView postTitle;
-        TextView postText;
+        private TextView postTitle;
+        private TextView postText;
 
         public PostViewHolder(@androidx.annotation.NonNull View itemView) {
             super(itemView);
