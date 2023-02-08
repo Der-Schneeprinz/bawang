@@ -1,122 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.viewpost.ViewPostActivity">
 
-    <LinearLayout
-        style="@style/TopBar"
-        android:id="@+id/conTopBar"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:layout_height="wrap_content">
 
-        <ImageButton
-            style="@style/TopBarBackButton"
-            android:id="@+id/ibBackButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/baseline_arrow_back_ios_new_24_yellow"
-            android:contentDescription="BackButton" />
-
-        <TextView
-            style="@style/TopBarTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Post"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llPost"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingHorizontal="10sp"
-        android:paddingVertical="20sp"
-        android:background="@drawable/bg_underline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/conTopBar"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <include
-            android:id="@+id/conVotes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            layout="@layout/item_votes" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+            style="@style/TopBar"
+            android:id="@+id/conTopBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintStart_toEndOf="@id/llVotes"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <ImageView
-                style="@style/PostViewProfilePic"
-                android:id="@+id/ivPostProfilePic"
+            <ImageButton
+                style="@style/TopBarBackButton"
+                android:id="@+id/ibBackButton"
+                android:layout_width="34sp"
+                android:layout_height="24sp"
+                app:srcCompat="@drawable/baseline_arrow_back_ios_new_24_yellow"
+                android:contentDescription="BackButton" />
+
+            <TextView
+                style="@style/TopBarTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
+                android:text="Post"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_baseline_account_circle_24" />
-
-            <TextView
-                style="@style/PostViewFullName"
-                android:id="@+id/tvPostFullName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/postUsername"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/ivPostProfilePic"/>
-
-            <ImageView
-                style="@style/PostViewOrgProfilePic"
-                android:id="@+id/ivPostOrgProfilePic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvPostFullName"
-                app:srcCompat="@drawable/baseline_groups_2_24"/>
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
-            <TextView
-                style="@style/PostViewOrg"
-                android:id="@+id/tvPostOrg"
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llPost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10sp"
+            android:paddingVertical="20sp"
+            android:background="@drawable/bg_post_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/conTopBar"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <include
+                android:id="@+id/conVotes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/postOrg"
-                app:layout_constraintTop_toBottomOf="@+id/tvPostFullName"
-                app:layout_constraintStart_toEndOf="@+id/ivPostOrgProfilePic"/>
+                layout="@layout/item_votes" />
 
-            <TextView
-                style="@style/PostViewTitle"
-                android:id="@+id/tvPostTitle"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/postTitle"
-                app:layout_constraintTop_toBottomOf="@+id/tvPostOrg"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/llVotes"
+                app:layout_constraintEnd_toEndOf="parent">
 
-            <TextView
-                style="@style/PostViewText"
-                android:id="@+id/tvPostBody"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/postText"
-                app:layout_constraintTop_toBottomOf="@id/tvPostTitle"
-                app:layout_constraintStart_toStartOf="parent"/>
+                <ImageView
+                    style="@style/PostViewProfilePic"
+                    android:id="@+id/ivPostProfilePic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Profile Picture"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    style="@style/PostViewFullName"
+                    android:id="@+id/tvPostFullName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/postUsername"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivPostProfilePic"/>
 
-    </LinearLayout>
+                <ImageView
+                    style="@style/PostViewOrgProfilePic"
+                    android:id="@+id/ivPostOrgProfilePic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Org Profile Picture"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPostDate"
+                    app:srcCompat="@drawable/baseline_groups_2_24"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    style="@style/PostViewOrg"
+                    android:id="@+id/tvPostOrg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/postOrg"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPostDate"
+                    app:layout_constraintStart_toEndOf="@+id/ivPostOrgProfilePic"/>
+
+                <TextView
+                    android:id="@+id/tvPostDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NO DATE"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPostFullName"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    style="@style/PostViewTitle"
+                    android:id="@+id/tvPostTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/postTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPostOrg"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    style="@style/PostViewText"
+                    android:id="@+id/tvPostBody"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/postText"
+                    app:layout_constraintTop_toBottomOf="@id/tvPostTitle"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <include
+            android:id="@+id/incWriteComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llPost"
+            layout="@layout/item_write_comment"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/incWriteComment"
+            tools:listitem="@layout/activity_comment" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
