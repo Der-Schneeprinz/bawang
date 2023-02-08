@@ -9,9 +9,13 @@ import com.merah.bawang.view.homescreen.fragments.OrgsFragment;
 import com.merah.bawang.view.homescreen.fragments.PostsFragment;
 import com.merah.bawang.view.homescreen.fragments.ProfileFragment;
 
-public class ViewPagerAdapterDiscoverPage extends FragmentStateAdapter {
+import java.util.ArrayList;
 
-    public ViewPagerAdapterDiscoverPage(@NonNull DiscoverFragment fragmentActivity) {
+public class DiscoverPageAdapter extends FragmentStateAdapter {
+
+    private ArrayList<Fragment> fragments = new ArrayList<>();
+
+    public DiscoverPageAdapter(@NonNull DiscoverFragment fragmentActivity) {
         super(fragmentActivity);
     }
 
@@ -26,11 +30,16 @@ public class ViewPagerAdapterDiscoverPage extends FragmentStateAdapter {
             case 2:
                 return new ProfileFragment();
         }
-        return new PostsFragment();
+        return fragments.get(position);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return fragments.size();
     }
+
+    public void setData(ArrayList<Fragment> fragments) {
+        this.fragments = fragments;
+    }
+
 }

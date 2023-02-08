@@ -12,14 +12,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.merah.bawang.R;
-import com.merah.bawang.viewmodel.recyclerviewposts.ViewPagerAdapterDiscoverPage;
+import com.merah.bawang.viewmodel.recyclerviewposts.DiscoverPageAdapter;
+
+import java.util.ArrayList;
 
 public class DiscoverFragment extends Fragment {
 
-    TabLayout tabLayout;
-    ViewPager2 viewPager2;
-    ViewPagerAdapterDiscoverPage viewPagerAdapterDiscoverPage;
+    private TabLayout tabLayout;
+    private ViewPager2 viewPager2;
+    private DiscoverPageAdapter discoverPageAdapter;
+    private ArrayList<Fragment> fragments;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,18 +34,12 @@ public class DiscoverFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_discover, container, false);
 
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
+        View view = inflater.inflate(R.layout.fragment_discover, container, false);
         tabLayout = view.findViewById(R.id.tabsLayout);
         viewPager2 = view.findViewById(R.id.vpTab);
-        viewPagerAdapterDiscoverPage = new ViewPagerAdapterDiscoverPage(this);
-        viewPager2.setAdapter(viewPagerAdapterDiscoverPage);
+        discoverPageAdapter = new DiscoverPageAdapter(this);
+        viewPager2.setAdapter(discoverPageAdapter);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             // Listens for the tab swipes
@@ -68,5 +67,27 @@ public class DiscoverFragment extends Fragment {
                 tabLayout.getTabAt(position).select();
             }
         });
+        return view;
+
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        TabLayout tabLayout = view.findViewById(R.id.tabsLayout);
+        String[] titles = {"Posts", "Organizations", "People"};
+        setViewPagerAdapter();
+        new TabLayoutMediator(tabLayout, viewPager2,
+                (tab, position) -> tab.setText(titles[position])
+        ).attach();
+    }
+    public void setViewPagerAdapter() {
+        DiscoverPageAdapter discoverPageAdapter = new DiscoverPageAdapter(this);
+        fragments = new ArrayList<>();
+        fragments.add(new PostsFragment());
+        fragments.add(new OrgsFragment());
+        fragments.add(new ProfileFragment());
+        discoverPageAdapter.setData(fragments); //sets the data for the adapter
+        viewPager2.setAdapter(discoverPageAdapter);
+    }
+
 }
