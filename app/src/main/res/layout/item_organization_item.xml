@@ -24,7 +24,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+            app:srcCompat="@drawable/baseline_groups_2_24" />
 
         <TextView
             style="@style/TextOrg"
@@ -36,10 +36,10 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
-            android:id="@+id/tvAffiliate"
+            android:id="@+id/tvMembership"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="NOT MEMBER"
+            android:text="NOT A MEMBER"
             app:layout_constraintStart_toEndOf="@+id/ivProfile"
             app:layout_constraintTop_toBottomOf="@+id/tvOrg"/>
 
