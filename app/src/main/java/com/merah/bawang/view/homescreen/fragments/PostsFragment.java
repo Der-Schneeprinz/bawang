@@ -14,14 +14,14 @@ import android.view.ViewGroup;
 
 import com.merah.bawang.model.PostItem;
 import com.merah.bawang.R;
-import com.merah.bawang.viewmodel.recyclerviewposts.RecyclerViewAdapter;
+import com.merah.bawang.viewmodel.recyclerviewposts.PostAdapter;
 
 import java.util.ArrayList;
 
 public class PostsFragment extends Fragment {
 
     RecyclerView recyclerView;
-    ArrayList<PostItem> itemPostContentItem = new ArrayList<PostItem>();
+    ArrayList<PostItem> postItems = new ArrayList<>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,22 +39,22 @@ public class PostsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        setUpItemPostContent();
+        setUpPostItemContent();
 
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(getContext(), itemPostContentItem);
+        PostAdapter adapter = new PostAdapter(getContext(), postItems);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
 
-    private void setUpItemPostContent() {
+    private void setUpPostItemContent() {
         // conUsername
         String[] postUsername = getResources().getStringArray(R.array.saUsernames);
         String[] postOrg = getResources().getStringArray(R.array.saOrgs);
         for(int i = 0; i < postUsername.length;i++){
-            itemPostContentItem.add(new PostItem(
+            postItems.add(new PostItem(
                     "",
                     postUsername[i],
                     postOrg[i%2],

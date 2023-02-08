@@ -11,35 +11,37 @@ public class PostItem extends Post {
      *      _OID (class)
      *      Post Text
      *      Post Title
-     *      Upvotes
-     *      Downvotes
+     *      Votes
      *      Post Profile
      *      Comment <List>
+     *      Dates
      */
 
     private String fullName;
     private String postText;
     private String postTitle;
-    private int upvotes;
+    private int votes;
     private int postProfile;
     private ArrayList<String> comments;
+    private String date;
 
-    public PostItem(String _PID, String _OID, String fullName, String postText, String postTitle, int upvotes, int postProfile, ArrayList<String> comments) {
+    public PostItem(String _PID, String _OID, String fullName, String postText, String postTitle, int votes, int postProfile, ArrayList<String> comments, String date) {
         super(_PID, _OID);
         this.fullName = fullName;
         this.postText = postText;
         this.postTitle = postTitle;
-        this.upvotes = upvotes;
+        this.votes = votes;
         this.postProfile = postProfile;
         this.comments = comments;
+        this.date = date;
     }
 
     // TODO: REMOVE OLD CONSTRUCTOR
-    public PostItem(String _PID, String _OID, String fullName, String postText, String postTitle, int upvotes, int postProfile) {
+    public PostItem(String _PID, String _OID, String fullName, String postText, String postTitle, int votes, int postProfile) {
         super(_PID, _OID);
         this.fullName = fullName;
         this.postText = postText;
-        this.upvotes = upvotes;
+        this.votes = votes;
         this.postProfile = postProfile;
         this.postTitle = postTitle;
     }
@@ -58,8 +60,8 @@ public class PostItem extends Post {
         this.postTitle = postTitle;
     }
 
-    public void setUpvotes(int upvotes) {
-        this.upvotes = upvotes;
+    public void setVotes(int votes) {
+        this.votes = votes;
     }
 
     public void setPostProfile(int postProfile) {
@@ -68,6 +70,10 @@ public class PostItem extends Post {
 
     public void setComments(ArrayList<String> comments) {
         this.comments = comments;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     // GETTERS
@@ -94,8 +100,8 @@ public class PostItem extends Post {
         return postTitle;
     }
 
-    public int getUpvotes() {
-        return upvotes;
+    public int getVotes() {
+        return votes;
     }
 
     public int getPostProfile() {
@@ -104,5 +110,9 @@ public class PostItem extends Post {
 
     public ArrayList<String> getComments() {
         return comments;
+    }
+
+    public String getDate() {
+        return date;
     }
 }
