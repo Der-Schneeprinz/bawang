@@ -54,7 +54,7 @@
     </style>
     <!-- Post Comment -->
     <style name="PostViewComment">
-        <item name="android:background">@drawable/bg_underline</item>
+        <item name="android:background">@drawable/bg_post_card</item>
         <item name="android:padding">10sp</item>
     </style>
     <style name="PostViewCommentText">
@@ -75,6 +75,8 @@
     <style name="TextUsername">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
     <style name="TextOrg">
         <item name="android:textStyle">bold</item>
@@ -88,13 +90,15 @@
     <style name="TextTitle">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
     <style name="TextPost">
         <item name="android:paddingBottom">16sp</item>
         <item name="android:paddingTop">8sp</item>
         <item name="android:textSize">18sp</item>
-        <item name="android:maxWidth">300sp</item>
         <item name="android:maxLines">4</item>
+        <item name="android:ellipsize">end</item>
     </style>
     <style name="TextCounter">
         <item name="android:textSize">18sp</item>
@@ -107,7 +111,7 @@
         <item name="android:background">@null</item>
     </style>
     <style name="Posts">
-        <item name="android:background">@drawable/bg_underline</item>
+        <item name="android:background">@drawable/bg_post_card</item>
     </style>
     <style name="PostProfile">
         <item name="android:minHeight">40sp</item>
