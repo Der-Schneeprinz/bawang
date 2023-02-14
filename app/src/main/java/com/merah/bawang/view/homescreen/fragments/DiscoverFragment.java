@@ -10,11 +10,12 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.merah.bawang.R;
-import com.merah.bawang.viewmodel.recyclerviewposts.DiscoverPageAdapter;
+import com.merah.bawang.viewmodel.recyclerviewposts.adapters.DiscoverPageAdapter;
 
 import java.util.ArrayList;
 
@@ -22,6 +23,7 @@ public class DiscoverFragment extends Fragment {
 
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
+    private SearchView searchView;
     private DiscoverPageAdapter discoverPageAdapter;
     private ArrayList<Fragment> fragments;
 

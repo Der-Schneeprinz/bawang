@@ -1,4 +1,4 @@
-package com.merah.bawang.viewmodel.recyclerviewposts;
+package com.merah.bawang.viewmodel.recyclerviewposts.adapters;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -8,6 +8,7 @@ import com.merah.bawang.view.homescreen.fragments.DiscoverFragment;
 import com.merah.bawang.view.homescreen.fragments.OrgsFragment;
 import com.merah.bawang.view.homescreen.fragments.PostsFragment;
 import com.merah.bawang.view.homescreen.fragments.ProfileFragment;
+import com.merah.bawang.view.homescreen.fragments.ProfileRvFragment;
 
 import java.util.ArrayList;
 
@@ -28,7 +29,7 @@ public class DiscoverPageAdapter extends FragmentStateAdapter {
             case 1:
                 return new OrgsFragment();
             case 2:
-                return new ProfileFragment();
+                return new ProfileRvFragment();
         }
         return fragments.get(position);
     }
