@@ -13,17 +13,17 @@
     <string name="postUsername">NO ONE</string>
     <string name="postText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
     <string name="postOrg">NO ORG</string>
-    <string name="postTitle">NO TITLE</string>
+    <string name="postTitle">Sample Title</string>
     <string name="postUpvoteCounter">0</string>
     <string name="postDownvoteCounter">0</string>
     <string name="postComment">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
     <string-array name="saUsernames">
-        <item>John_Doe</item>
-        <item>Joan_Doe</item>
-        <item>Juan_Dela_Cruz</item>
-        <item>Juana_Dela_Cruz</item>
-        <item>Jean_D_Arc</item>
-        <item>Jeanne_D_Arc</item>
+        <item>John Doe</item>
+        <item>Joan Doe</item>
+        <item>Juan Dela Cruz</item>
+        <item>Juana  Dela Cruz</item>
+        <item>Jean D\'Arc</item>
+        <item>Jeanne D\'Arc</item>
     </string-array>
     <string-array name="saOrgs">
         <item>PUP Sintang Pusa</item>
