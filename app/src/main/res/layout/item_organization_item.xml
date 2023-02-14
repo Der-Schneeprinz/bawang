@@ -27,7 +27,7 @@
             app:srcCompat="@drawable/baseline_groups_2_24" />
 
         <TextView
-            style="@style/TextOrg"
+            style="@style/Post20spBold1LineText"
             android:id="@+id/tvOrg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

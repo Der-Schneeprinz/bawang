@@ -17,10 +17,11 @@
         app:layout_constraintTop_toTopOf="parent">
         
         <TextView
-            style="@style/TextTitle"
             android:id="@+id/tvAffiliatedOrgs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:text="Affiliated Organizations"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
