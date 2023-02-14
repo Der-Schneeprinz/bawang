@@ -5,23 +5,29 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.merah.bawang.R;
 import com.merah.bawang.model.OrganizationRVItem;
 import com.merah.bawang.viewmodel.recyclervieworganizations.OrgsAdapter;
+import com.merah.bawang.viewmodel.recyclervieworganizations.ViewModelOrgs;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class OrgsFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private ArrayList<OrganizationRVItem> organizationRVItems = new ArrayList<>();
+    private ViewModelOrgs viewModel;
+    private ProgressBar progressBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,25 +45,24 @@ public class OrgsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        setupOrganizationRVItemContent();
+        progressBar = view.findViewById(R.id.progressBar);
+
         recyclerView = view.findViewById(R.id.recyclerView);
+        OrgsAdapter adapter = new OrgsAdapter(getContext(), organizationRVItems);
+
+        viewModel = new ViewModelProvider(this).get(ViewModelOrgs.class);
+        viewModel.getAllOrgs().observe(getViewLifecycleOwner(), adapter::updateOrgs);
+        viewModel.getIsUpdating().observe(getViewLifecycleOwner(), aBoolean -> {
+            if(aBoolean) {
+                progressBar.setVisibility(View.VISIBLE);
+            } else {
+                progressBar.setVisibility(View.INVISIBLE);
+                recyclerView.smoothScrollToPosition(Objects.requireNonNull(viewModel.getAllOrgs().getValue()).size()-1);
+            }
+        });
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
-        OrgsAdapter orgsAdapter = new OrgsAdapter(getContext(), organizationRVItems);
-        recyclerView.setAdapter(orgsAdapter);
-        orgsAdapter.notifyDataSetChanged();
-
-    }
-
-    private void setupOrganizationRVItemContent() {
-        String[] orgNames = getResources().getStringArray(R.array.saOrgs);
-        for (String orgName : orgNames) {
-            organizationRVItems.add(new OrganizationRVItem(
-                    "",
-                    R.drawable.baseline_groups_2_24,
-                    orgName,
-                    "Not a Member"
-            ));
-        }
     }
 }

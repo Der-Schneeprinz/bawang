@@ -1,6 +1,7 @@
 package com.merah.bawang.viewmodel.recyclervieworganizations;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 
 public class OrgsAdapter extends RecyclerView.Adapter<OrgsAdapter.OrgViewHolder> {
 
+    private static final String TAG = "OrgsAdapter";
     private Context context;
     private ArrayList<OrganizationRVItem> organizationRVItems;
 
@@ -42,6 +44,12 @@ public class OrgsAdapter extends RecyclerView.Adapter<OrgsAdapter.OrgViewHolder>
     @Override
     public int getItemCount() {
         return organizationRVItems.size();
+    }
+
+    public void updateOrgs(ArrayList<OrganizationRVItem> organizationRVItems) {
+        Log.i(TAG, "updateOrgs has been called.");
+        this.organizationRVItems = organizationRVItems;
+        notifyDataSetChanged();
     }
 
     public static class OrgViewHolder extends RecyclerView.ViewHolder {
