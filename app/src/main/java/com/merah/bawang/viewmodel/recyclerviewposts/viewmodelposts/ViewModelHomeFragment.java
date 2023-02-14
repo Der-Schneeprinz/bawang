@@ -1,4 +1,4 @@
-package com.merah.bawang.viewmodel.homescreen.fragments;
+package com.merah.bawang.viewmodel.recyclerviewposts.viewmodelposts;
 
 import android.app.Application;
 import android.support.annotation.NonNull;
@@ -15,26 +15,26 @@ import java.util.ArrayList;
 public class ViewModelHomeFragment extends AndroidViewModel {
 
     private static final String TAG = "ViewModelHomeFragment";
-    private MutableLiveData<ArrayList<PostRVItem>> liveDataPosts;
+    private MutableLiveData<ArrayList<PostRVItem>> liveData;
     private final MutableLiveData<Boolean> isUpdating = new MutableLiveData<>();
 
     public ViewModelHomeFragment(@NonNull Application application) {
         super(application);
-        liveDataPosts = new MutableLiveData<>();
+        liveData = new MutableLiveData<>();
 
         init();
     }
 
     public void init() {
-        if(liveDataPosts == null)
+        Log.i(TAG, "init has been called");
+        if(liveData == null)
             return;
         PostRepository repo = PostRepository.getInstance();
-        Log.i(TAG, "init has been called");
-        liveDataPosts = repo.getPosts();
+        liveData = repo.getPosts();
     }
 
     public MutableLiveData<ArrayList<PostRVItem>> getAllPosts() {
-        return liveDataPosts;
+        return liveData;
     }
 
     public MutableLiveData<Boolean> getIsUpdating() {
