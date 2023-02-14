@@ -23,7 +23,6 @@ public class PostRVItem extends Post {
     private int postProfile;
     private Post post = new Post("", "");
 
-    // TODO: REMOVE OLD CONSTRUCTOR
     public PostRVItem(Post post, String fullName, String postOrg, String postText, String postTitle, int votes, int postProfile) {
         super(post);
         this.fullName = fullName;

@@ -14,23 +14,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
-import com.merah.bawang.model.PostRVItem;
 import com.merah.bawang.R;
-import com.merah.bawang.viewmodel.recyclerviewposts.viewmodelposts.ViewModelPostFragment;
-import com.merah.bawang.viewmodel.recyclerviewposts.adapters.PostAdapter;
+import com.merah.bawang.model.UserRVItem;
+import com.merah.bawang.viewmodel.recyclerviewprofile.ProfileItemAdapter;
+import com.merah.bawang.viewmodel.recyclerviewprofile.ViewModelProfileFragment;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class PostsFragment extends Fragment {
+public class ProfileRvFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private final ArrayList<PostRVItem> postRVItems = new ArrayList<>();
-    private ViewModelPostFragment viewModel;
+    private final ArrayList<UserRVItem> userRVItems = new ArrayList<>();
+    private ViewModelProfileFragment viewModel;
     private ProgressBar progressBar;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
@@ -38,7 +38,7 @@ public class PostsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_posts, container, false);
+        return inflater.inflate(R.layout.fragment_profile_rv, container, false);
     }
 
     @Override
@@ -48,16 +48,16 @@ public class PostsFragment extends Fragment {
         progressBar = view.findViewById(R.id.progressBar);
 
         recyclerView = view.findViewById(R.id.recyclerView);
-        PostAdapter adapter = new PostAdapter(getContext(), postRVItems);
+        ProfileItemAdapter adapter = new ProfileItemAdapter(getContext(), userRVItems);
 
-        viewModel = new ViewModelProvider(this).get(ViewModelPostFragment.class);
-        viewModel.getAllPosts().observe(getViewLifecycleOwner(), adapter::updatePosts);
+        viewModel = new ViewModelProvider(this).get(ViewModelProfileFragment.class);
+        viewModel.getAllProfiles().observe(getViewLifecycleOwner(), adapter::updateProfileItems);
         viewModel.getIsUpdating().observe(getViewLifecycleOwner(), aBoolean -> {
             if(aBoolean) {
                 progressBar.setVisibility(View.VISIBLE);
             } else {
                 progressBar.setVisibility(View.INVISIBLE);
-                recyclerView.smoothScrollToPosition(Objects.requireNonNull(viewModel.getAllPosts().getValue()).size()-1);
+                recyclerView.smoothScrollToPosition(Objects.requireNonNull(viewModel.getAllProfiles().getValue()).size()-1);
             }
         });
 

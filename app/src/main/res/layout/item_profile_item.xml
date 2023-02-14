@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/eachCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="6sp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            style="@style/Posts"
+            android:id="@+id/postCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/searchProfile"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+
+            <TextView
+                style="@style/Post20spBold1LineText"
+                android:id="@+id/searchFullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NO NAME"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
