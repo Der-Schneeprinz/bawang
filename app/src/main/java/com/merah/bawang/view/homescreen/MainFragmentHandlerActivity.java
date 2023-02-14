@@ -38,7 +38,7 @@ public class MainFragmentHandlerActivity extends AppCompatActivity implements Bo
         // navigation view
         bottomNavigationView = findViewById(R.id.bot_nav_bar);
         bottomNavigationView.setOnItemSelectedListener(this);
-        bottomNavigationView.setSelectedItemId(R.id.ibHome);
+        bottomNavigationView.setSelectedItemId(R.id.itHome);
 
         /*
          * NOTIFICATIONS
@@ -49,26 +49,22 @@ public class MainFragmentHandlerActivity extends AppCompatActivity implements Bo
 
         getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, homeFragment).commit();
 
-        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                //Toast.makeText(getApplicationContext(), "You are in the MainFragmentHandlerActivity", Toast.LENGTH_SHORT).show();
-                switch (item.getItemId()) {
-                    case R.id.itSearch:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, discoverFragment).commit();
-                        return true;
-
-                    case R.id.itHome:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, homeFragment).commit();
-                        return true;
-
-                    case R.id.itProfile:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, profileFragment).commit();
-                        return true;
-                }
-                Toast.makeText(getApplicationContext(), "NULL", Toast.LENGTH_SHORT).show();
-                return false;
+        //new NavigationBarView.OnItemSelectedListener()
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            //Toast.makeText(getApplicationContext(), "You are in the MainFragmentHandlerActivity", Toast.LENGTH_SHORT).show();
+            int itemId = item.getItemId();
+            if (itemId == R.id.itSearch) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, discoverFragment).commit();
+                return true;
+            } else if (itemId == R.id.itHome) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, homeFragment).commit();
+                return true;
+            } else if (itemId == R.id.itProfile) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, profileFragment).commit();
+                return true;
             }
+            Toast.makeText(getApplicationContext(), "NULL", Toast.LENGTH_SHORT).show();
+            return false;
         });
 
     }
@@ -82,21 +78,19 @@ public class MainFragmentHandlerActivity extends AppCompatActivity implements Bo
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.ibSearch:
-                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, homeFragment).commit();
-                Toast.makeText(getApplicationContext(), "You pressed search1", Toast.LENGTH_SHORT).show();
-                return true;
-
-            case R.id.ibHome:
-                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, discoverFragment).commit();
-                Toast.makeText(getApplicationContext(), "You pressed home1", Toast.LENGTH_SHORT).show();
-                return true;
-
-            case R.id.ibProfile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, profileFragment).commit();
-                Toast.makeText(getApplicationContext(), "You pressed profile1", Toast.LENGTH_SHORT).show();
-                return true;
+        int itemId = item.getItemId();
+        if (itemId == R.id.itSearch) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, homeFragment).commit();
+            Toast.makeText(getApplicationContext(), "You pressed search1", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (itemId == R.id.itHome) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, discoverFragment).commit();
+            Toast.makeText(getApplicationContext(), "You pressed home1", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (itemId == R.id.itProfile) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, profileFragment).commit();
+            Toast.makeText(getApplicationContext(), "You pressed profile1", Toast.LENGTH_SHORT).show();
+            return true;
         }
         return false;
     }
