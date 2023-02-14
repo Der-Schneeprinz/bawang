@@ -72,35 +72,24 @@
     </style>
 
     <!-- Item Post Related Styles -->
-    <style name="TextUsername">
+    <style name="Post20spBold1LineText">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:maxLines">1</item>
+        <item name="android:lines">1</item>
         <item name="android:ellipsize">end</item>
-    </style>
-    <style name="TextOrg">
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:textColor">@color/black</item>
     </style>
     <style name="TextInBetween">
         <item name="android:text">in</item>
         <item name="android:paddingHorizontal">5sp</item>
     </style>
-    <style name="TextTitle">
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:ellipsize">end</item>
-    </style>
-    <style name="TextPost">
+    <style name="PostBody">
         <item name="android:paddingBottom">16sp</item>
         <item name="android:paddingTop">8sp</item>
         <item name="android:textSize">18sp</item>
         <item name="android:maxLines">4</item>
         <item name="android:ellipsize">end</item>
     </style>
-    <style name="TextCounter">
+    <style name="PostVoteCounter">
         <item name="android:textSize">18sp</item>
         <item name="android:padding">10sp</item>
     </style>
@@ -271,7 +260,7 @@
 
     <!-- Input Styles  -->
     <style name="SortSpinner">
-        <item name="android:minHeight">36sp</item>
+        <item name="android:minHeight">42sp</item>
         <item name="android:minWidth">300sp</item>
         <item name="android:maxWidth">300sp</item>
         <item name="android:color">@color/black</item>
