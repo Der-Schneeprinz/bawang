@@ -1,4 +1,4 @@
-package com.merah.bawang.viewmodel.recyclerviewposts;
+package com.merah.bawang.viewmodel.recyclerviewposts.adapters;
 
 import androidx.recyclerview.widget.RecyclerView;
 

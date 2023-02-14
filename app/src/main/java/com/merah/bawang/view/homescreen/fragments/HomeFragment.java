@@ -16,8 +16,8 @@ import android.widget.ProgressBar;
 
 import com.merah.bawang.model.PostRVItem;
 import com.merah.bawang.R;
-import com.merah.bawang.viewmodel.homescreen.fragments.ViewModelHomeFragment;
-import com.merah.bawang.viewmodel.recyclerviewposts.PostAdapter;
+import com.merah.bawang.viewmodel.recyclerviewposts.viewmodelposts.ViewModelHomeFragment;
+import com.merah.bawang.viewmodel.recyclerviewposts.adapters.PostAdapter;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -27,7 +27,6 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private ViewModelHomeFragment viewModel;
     private final ArrayList<PostRVItem> postRVItems = new ArrayList<>();
-    private PostAdapter adapter;
     private ProgressBar progressBar;
 
     @Override
@@ -39,7 +38,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
@@ -47,11 +45,12 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        progressBar = view.findViewById(R.id.progress_circular);
+        progressBar = view.findViewById(R.id.progressBar);
 
-        adapter = new PostAdapter(getContext(), postRVItems);
+        recyclerView = view.findViewById(R.id.recyclerView);
+        PostAdapter adapter = new PostAdapter(getContext(), postRVItems);
+
         viewModel = new ViewModelProvider(this).get(ViewModelHomeFragment.class);
-        viewModel.init();
         /*viewModel.getAllPosts().observe(getViewLifecycleOwner(), new Observer<ArrayList<PostRVItem>>() {
             @Override
             public void onChanged(ArrayList<PostRVItem> postRVItems) {
@@ -79,10 +78,9 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
+        recyclerView.setHasFixedSize(true);
     }
 
 }
