@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,17 +14,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
-import com.merah.bawang.model.PostItem;
+import com.merah.bawang.model.PostRVItem;
 import com.merah.bawang.R;
+import com.merah.bawang.viewmodel.homescreen.fragments.ViewModelHomeFragment;
 import com.merah.bawang.viewmodel.recyclerviewposts.PostAdapter;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
-    RecyclerView recyclerView;
-    ArrayList<PostItem> itemPostContentItem = new ArrayList<PostItem>();
-    ProgressBar progressBar;
+    private RecyclerView recyclerView;
+    private ViewModelHomeFragment viewModel;
+    private final ArrayList<PostRVItem> postRVItems = new ArrayList<>();
+    private PostAdapter adapter;
+    private ProgressBar progressBar;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,6 +39,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
@@ -41,30 +47,42 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        setUpItemPostContent();
+        progressBar = view.findViewById(R.id.progress_circular);
+
+        adapter = new PostAdapter(getContext(), postRVItems);
+        viewModel = new ViewModelProvider(this).get(ViewModelHomeFragment.class);
+        viewModel.init();
+        /*viewModel.getAllPosts().observe(getViewLifecycleOwner(), new Observer<ArrayList<PostRVItem>>() {
+            @Override
+            public void onChanged(ArrayList<PostRVItem> postRVItems) {
+                adapter.updatePosts(postRVItems);
+            }
+        });*/
+        viewModel.getAllPosts().observe(getViewLifecycleOwner(), adapter::updatePosts);
+        /*viewModel.getIsUpdating().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if(aBoolean) {
+                    progressBar.setVisibility(View.VISIBLE);
+                } else {
+                    progressBar.setVisibility(View.INVISIBLE);
+                    recyclerView.smoothScrollToPosition(viewModel.getAllPosts().getValue().size()-1);
+                }
+            }
+        });*/
+        viewModel.getIsUpdating().observe(getViewLifecycleOwner(), aBoolean -> {
+            if(aBoolean) {
+                progressBar.setVisibility(View.VISIBLE);
+            } else {
+                progressBar.setVisibility(View.INVISIBLE);
+                recyclerView.smoothScrollToPosition(Objects.requireNonNull(viewModel.getAllPosts().getValue()).size()-1);
+            }
+        });
 
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        PostAdapter adapter = new PostAdapter(getContext(), itemPostContentItem);
         recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
     }
 
-    private void setUpItemPostContent() {
-        // conUsername
-        String[] postUsername = getResources().getStringArray(R.array.saUsernames);
-        String[] postOrg = getResources().getStringArray(R.array.saOrgs);
-        for(int i = 0; i < postUsername.length;i++){
-            itemPostContentItem.add(new PostItem(
-                    "",
-                    postOrg[i%2],
-                    postUsername[i],
-                    getResources().getString(R.string.postText),
-                    getResources().getString(R.string.postTitle),
-                    0,
-                    R.drawable.ic_baseline_account_circle_24
-            ));
-        }
-    }
 }

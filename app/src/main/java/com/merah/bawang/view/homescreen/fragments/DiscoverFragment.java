@@ -40,6 +40,7 @@ public class DiscoverFragment extends Fragment {
         viewPager2 = view.findViewById(R.id.vpTab);
         discoverPageAdapter = new DiscoverPageAdapter(this);
         viewPager2.setAdapter(discoverPageAdapter);
+        viewPager2.setSaveEnabled(false);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             // Listens for the tab swipes

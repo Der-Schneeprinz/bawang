@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,8 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.merah.bawang.model.PostItem;
+import com.merah.bawang.model.PostRVItem;
 import com.merah.bawang.R;
+import com.merah.bawang.viewmodel.homescreen.fragments.ViewModelPostFragment;
 import com.merah.bawang.viewmodel.recyclerviewposts.PostAdapter;
 
 import java.util.ArrayList;
@@ -21,7 +23,8 @@ import java.util.ArrayList;
 public class PostsFragment extends Fragment {
 
     RecyclerView recyclerView;
-    ArrayList<PostItem> postItems = new ArrayList<>();
+    ArrayList<PostRVItem> postRVItems = new ArrayList<>();
+    ViewModelPostFragment viewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,30 +42,13 @@ public class PostsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        setUpPostItemContent();
-
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        PostAdapter adapter = new PostAdapter(getContext(), postItems);
+        PostAdapter adapter = new PostAdapter(getContext(), postRVItems);
         recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-    }
 
-    private void setUpPostItemContent() {
-        // conUsername
-        String[] postUsername = getResources().getStringArray(R.array.saUsernames);
-        String[] postOrg = getResources().getStringArray(R.array.saOrgs);
-        for(int i = 0; i < postUsername.length;i++){
-            postItems.add(new PostItem(
-                    "",
-                    postUsername[i],
-                    postOrg[i%2],
-                    getResources().getString(R.string.postText),
-                    getResources().getString(R.string.postTitle),
-                    0,
-                    R.drawable.ic_baseline_account_circle_24
-            ));
-        }
+        viewModel = new ViewModelProvider(this).get(ViewModelPostFragment.class);
+        viewModel.getAllPosts().observe(getViewLifecycleOwner(), adapter::updatePosts);
     }
 }

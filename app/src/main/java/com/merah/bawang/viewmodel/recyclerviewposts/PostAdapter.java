@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,26 +13,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.merah.bawang.R;
-import com.merah.bawang.model.PostItem;
+import com.merah.bawang.model.PostRVItem;
 
 import java.util.ArrayList;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {
 
+    private static final String TAG = "PostAdapter";
     private Context context;
-    private ArrayList<PostItem> postItem;
+    private ArrayList<PostRVItem> postRVItems;
 
-    public PostAdapter(Context context, ArrayList<PostItem> postItem) {
+    public PostAdapter(Context context, ArrayList<PostRVItem> postRVItems) {
         this.context = context;
-        this.postItem = postItem;
+        this.postRVItems = postRVItems;
     }
 
-    /**
-     * RecyclerView.ViewHolder onCreateViewHolder inflates the layout (Giving a look to the rows)
-     * @param parent
-     * @param viewType
-     * @return
-     */
     @NonNull
     @Override
     public PostAdapter.PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -40,50 +36,45 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         return new PostViewHolder(view);
     }
 
-    /**
-     * void onBindViewHolder binds the values to the views inflated through the
-     * RecyclerView.ViewHolder as inflated in the layout based on the position of the RecyclerView
-     * @param holder
-     * @param position
-     */
     @Override
     public void onBindViewHolder(@NonNull PostAdapter.PostViewHolder holder, int position) {
         // conButtons
-        holder.postUpvoteCount.setText(Integer.toString(postItem.get(0).getVotes()));
+        holder.postUpvoteCount.setText(String.format(Integer.toString(postRVItems.get(0).getVotes())));
         // conUsername
-        holder.postFullName.setText(postItem.get(position).getFullName());
-        holder.postOrg.setText(postItem.get(position%2).get_OID());
+        holder.postFullName.setText(postRVItems.get(position).getFullName());
+        holder.postFullName.setSingleLine(true);
+        holder.postOrg.setText(postRVItems.get(position%2).get_OID());
+        holder.postOrg.setSingleLine(true);
         // parent
-        holder.postText.setText(postItem.get(0).getPostText());
-        holder.postTitle.setText(postItem.get(0).getPostTitle());
+        holder.postText.setText(postRVItems.get(0).getPostText());
+        holder.postTitle.setText(postRVItems.get(0).getPostTitle());
     }
 
-    /**
-     * for the item_search_post.xml layout
-     * @return
-     */
     @Override
     public int getItemCount() {
-        return postItem.size();
+        return postRVItems.size();
     }
 
-    /**
-     * gets all the views from item_search_post.xml file
-     * similar to onCreateViewHolder
-     */
+    public void updatePosts(ArrayList<PostRVItem> postRVItems) {
+        Log.i(TAG, "updatePosts has been called.");
+        this.postRVItems = postRVItems;
+        notifyDataSetChanged();
+    }
+
     public static class PostViewHolder extends RecyclerView.ViewHolder {
+
         // conButtons
-        private ImageButton postUpvote;
-        private ImageButton postComment;
-        private TextView postUpvoteCount;
+        private final ImageButton postUpvote;
+        private final ImageButton postComment;
+        private final TextView postUpvoteCount;
         // conUsername
-        private ImageView postProfile;
-        private TextView postFullName;
-        private TextView postInBetween;
-        private TextView postOrg;
+        private final ImageView postProfile;
+        private final TextView postFullName;
+        private final TextView postInBetween;
+        private final TextView postOrg;
         // parent
-        private TextView postTitle;
-        private TextView postText;
+        private final TextView postTitle;
+        private final TextView postText;
 
         public PostViewHolder(@androidx.annotation.NonNull View itemView) {
             super(itemView);
@@ -100,12 +91,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             // parent
             postTitle = itemView.findViewById(R.id.tvTitle);
             postText = itemView.findViewById(R.id.tvPost);
-        }
-    }
-
-    class ProgressViewHolder extends PostViewHolder {
-        public ProgressViewHolder(View itemView) {
-            super(itemView);
         }
     }
 }

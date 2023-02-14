@@ -7,8 +7,8 @@ public class PostItem extends Post {
     /**
      * Post Contains
      *      _PID
-     *      Full Name
      *      _OID (class)
+     *      Full Name
      *      Post Text
      *      Post Title
      *      Votes
@@ -36,83 +36,5 @@ public class PostItem extends Post {
         this.date = date;
     }
 
-    // TODO: REMOVE OLD CONSTRUCTOR
-    public PostItem(String _PID, String _OID, String fullName, String postText, String postTitle, int votes, int postProfile) {
-        super(_PID, _OID);
-        this.fullName = fullName;
-        this.postText = postText;
-        this.votes = votes;
-        this.postProfile = postProfile;
-        this.postTitle = postTitle;
-    }
 
-    // SETTERS
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public void setPostText(String postText) {
-        this.postText = postText;
-    }
-
-    public void setPostTitle(String postTitle) {
-        this.postTitle = postTitle;
-    }
-
-    public void setVotes(int votes) {
-        this.votes = votes;
-    }
-
-    public void setPostProfile(int postProfile) {
-        this.postProfile = postProfile;
-    }
-
-    public void setComments(ArrayList<String> comments) {
-        this.comments = comments;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    // GETTERS
-
-    @Override
-    public String get_PID() {
-        return super.get_PID();
-    }
-
-    @Override
-    public String get_OID() {
-        return super.get_OID();
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public String getPostText() {
-        return postText;
-    }
-
-    public String getPostTitle() {
-        return postTitle;
-    }
-
-    public int getVotes() {
-        return votes;
-    }
-
-    public int getPostProfile() {
-        return postProfile;
-    }
-
-    public ArrayList<String> getComments() {
-        return comments;
-    }
-
-    public String getDate() {
-        return date;
-    }
 }
