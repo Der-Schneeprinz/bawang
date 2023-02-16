@@ -260,7 +260,7 @@
 
     <!-- Input Styles  -->
     <style name="SortSpinner">
-        <item name="android:minHeight">42sp</item>
+        <item name="android:minHeight">50sp</item>
         <item name="android:minWidth">300sp</item>
         <item name="android:maxWidth">300sp</item>
         <item name="android:color">@color/black</item>
