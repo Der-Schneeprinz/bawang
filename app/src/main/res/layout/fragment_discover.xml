@@ -104,7 +104,7 @@
                 android:id="@+id/spSort"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Sort by"
+                android:contentDescription="Sort by"
                 android:spinnerMode="dropdown"
                 android:text="Sort by"
                 app:layout_constraintBottom_toBottomOf="parent"
