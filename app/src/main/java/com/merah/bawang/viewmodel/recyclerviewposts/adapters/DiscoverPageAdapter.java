@@ -7,12 +7,12 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.merah.bawang.view.homescreen.fragments.DiscoverFragment;
 import com.merah.bawang.view.homescreen.fragments.OrgsFragment;
 import com.merah.bawang.view.homescreen.fragments.PostsFragment;
-import com.merah.bawang.view.homescreen.fragments.ProfileFragment;
 import com.merah.bawang.view.homescreen.fragments.ProfileRvFragment;
 
 import java.util.ArrayList;
 
 public class DiscoverPageAdapter extends FragmentStateAdapter {
+
 
     private ArrayList<Fragment> fragments = new ArrayList<>();
 

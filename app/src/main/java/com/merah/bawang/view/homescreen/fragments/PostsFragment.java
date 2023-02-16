@@ -26,8 +26,10 @@ public class PostsFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private final ArrayList<PostRVItem> postRVItems = new ArrayList<>();
-    private ViewModelPostFragment viewModel;
+    private static ViewModelPostFragment viewModel;
     private ProgressBar progressBar;
+    private PostAdapter adapter;
+    private static final String ARG_SEARCHTERM = "search_term";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,11 +48,11 @@ public class PostsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         progressBar = view.findViewById(R.id.progressBar);
-
         recyclerView = view.findViewById(R.id.recyclerView);
-        PostAdapter adapter = new PostAdapter(getContext(), postRVItems);
+        adapter = new PostAdapter(getContext(), postRVItems);
 
-        viewModel = new ViewModelProvider(this).get(ViewModelPostFragment.class);
+        //viewModel = new ViewModelProvider(this).get(ViewModelPostFragment.class);
+        setViewModel();
         viewModel.getAllPosts().observe(getViewLifecycleOwner(), adapter::updatePosts);
         viewModel.getIsUpdating().observe(getViewLifecycleOwner(), aBoolean -> {
             if(aBoolean) {
@@ -64,5 +66,13 @@ public class PostsFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
+    }
+
+    public static ViewModelPostFragment getViewModel() {
+        return viewModel;
+    }
+
+    public void setViewModel() {
+        viewModel = new ViewModelProvider(this).get(ViewModelPostFragment.class);
     }
 }

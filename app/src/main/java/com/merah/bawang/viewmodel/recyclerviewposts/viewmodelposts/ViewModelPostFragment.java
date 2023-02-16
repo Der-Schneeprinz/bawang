@@ -40,4 +40,23 @@ public class ViewModelPostFragment extends AndroidViewModel {
     public MutableLiveData<Boolean> getIsUpdating() {
         return isUpdating;
     }
+
+
+    public MutableLiveData<ArrayList<PostRVItem>> filterList(String text) {
+        ArrayList<PostRVItem> postFiltered = new ArrayList<>();
+        // TODO: postRVItems is empty figure out when in the lifecycle is it going to call the onBindViewHolder
+        Log.i(TAG, "filteredList has been called");
+        for(PostRVItem post : liveDataPosts.getValue()) {
+            if(post.getFullName().toLowerCase().contains(text.toLowerCase())){
+                postFiltered.add(post);
+            } else if(post.getPostTitle().toLowerCase().contains(text.toLowerCase())) {
+                postFiltered.add(post);
+            }
+        }
+        return new MutableLiveData<>(postFiltered);
+    }
+    private void updateFilteredList(MutableLiveData<ArrayList<PostRVItem>> postFiltered) {
+        this.liveDataPosts = postFiltered;
+    }
+
 }
