@@ -24,6 +24,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvOrg"
             app:srcCompat="@drawable/baseline_groups_2_24" />
 
         <TextView
@@ -31,6 +32,8 @@
             android:id="@+id/tvOrg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10sp"
+            android:textColor="@color/black"
             android:text="NO ORG"
             app:layout_constraintStart_toEndOf="@+id/ivProfile"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -39,6 +42,7 @@
             android:id="@+id/tvMembership"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10sp"
             android:text="NOT A MEMBER"
             app:layout_constraintStart_toEndOf="@+id/ivProfile"
             app:layout_constraintTop_toBottomOf="@+id/tvOrg"/>

@@ -17,7 +17,7 @@ import android.widget.ProgressBar;
 import com.merah.bawang.R;
 import com.merah.bawang.model.UserRVItem;
 import com.merah.bawang.viewmodel.recyclerviewprofile.ProfileItemAdapter;
-import com.merah.bawang.viewmodel.recyclerviewprofile.ViewModelProfileFragment;
+import com.merah.bawang.viewmodel.recyclerviewprofile.ViewModelProfilesFragment;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -26,7 +26,7 @@ public class ProfileRvFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private final ArrayList<UserRVItem> userRVItems = new ArrayList<>();
-    private ViewModelProfileFragment viewModel;
+    private ViewModelProfilesFragment viewModel;
     private ProgressBar progressBar;
 
     @Override
@@ -50,7 +50,7 @@ public class ProfileRvFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         ProfileItemAdapter adapter = new ProfileItemAdapter(getContext(), userRVItems);
 
-        viewModel = new ViewModelProvider(this).get(ViewModelProfileFragment.class);
+        viewModel = new ViewModelProvider(this).get(ViewModelProfilesFragment.class);
         viewModel.getAllProfiles().observe(getViewLifecycleOwner(), adapter::updateProfileItems);
         viewModel.getIsUpdating().observe(getViewLifecycleOwner(), aBoolean -> {
             if(aBoolean) {
