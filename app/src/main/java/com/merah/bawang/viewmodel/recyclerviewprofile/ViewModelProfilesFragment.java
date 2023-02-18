@@ -6,20 +6,18 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.merah.bawang.model.User;
 import com.merah.bawang.model.UserRVItem;
-import com.merah.bawang.repository.PostRepository;
 import com.merah.bawang.repository.ProfileRepository;
 
 import java.util.ArrayList;
 
-public class ViewModelProfileFragment extends AndroidViewModel {
+public class ViewModelProfilesFragment extends AndroidViewModel {
 
     private static final String TAG = "ViewModelProfileFragment";
     private MutableLiveData<ArrayList<UserRVItem>> liveData;
     private MutableLiveData<Boolean> isUpdating = new MutableLiveData<>();
 
-    public ViewModelProfileFragment(@NonNull Application application) {
+    public ViewModelProfilesFragment(@NonNull Application application) {
         super(application);
         this.liveData = new MutableLiveData<>();
 

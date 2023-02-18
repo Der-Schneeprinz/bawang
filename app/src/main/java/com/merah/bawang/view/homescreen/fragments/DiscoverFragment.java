@@ -20,7 +20,7 @@ import com.merah.bawang.viewmodel.recyclervieworganizations.ViewModelOrgs;
 import com.merah.bawang.viewmodel.recyclerviewposts.adapters.DiscoverPageAdapter;
 import com.merah.bawang.viewmodel.recyclerviewposts.adapters.PostAdapter;
 import com.merah.bawang.viewmodel.recyclerviewposts.viewmodelposts.ViewModelPostFragment;
-import com.merah.bawang.viewmodel.recyclerviewprofile.ViewModelProfileFragment;
+import com.merah.bawang.viewmodel.recyclerviewprofile.ViewModelProfilesFragment;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -33,7 +33,7 @@ public class DiscoverFragment extends Fragment {
     private DiscoverPageAdapter adapter;
     private ViewModelPostFragment vmPosts;
     private ViewModelOrgs vmOrgs;
-    private ViewModelProfileFragment vmProfiles;
+    private ViewModelProfilesFragment vmProfiles;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -83,7 +83,7 @@ public class DiscoverFragment extends Fragment {
         searchView.clearFocus();
 
         vmOrgs = new ViewModelProvider(this).get(ViewModelOrgs.class);
-        vmProfiles = new ViewModelProvider(this).get(ViewModelProfileFragment.class);
+        vmProfiles = new ViewModelProvider(this).get(ViewModelProfilesFragment.class);
         PostAdapter postAdapter = new PostAdapter(getContext(), new ArrayList<>());
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
@@ -94,7 +94,7 @@ public class DiscoverFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                PostsFragment.getViewModel().filterList(newText).observe(getViewLifecycleOwner(), postAdapter::updatePosts);
+                //PostsFragment.getViewModel().filterList(newText).observe(getViewLifecycleOwner(), postAdapter::updatePosts);
                 return true;
             }
         });
