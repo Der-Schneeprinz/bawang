@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        layout="@layout/item_startup_logo" />
+        layout="@layout/layout_startup_logo" />
 
     <LinearLayout
         style="@style/StartupConBot"
@@ -35,7 +35,7 @@
             android:id="@+id/tvGreetings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Log in to Org Search"
+            android:text="@string/log_in_to_org_search"
             android:layout_marginTop="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +50,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/shape_drawer_indicator"
-            app:tint="@color/yellow_2" />
+            app:tint="@color/yellow_2"
+            android:contentDescription="@string/line" />
 
         <EditText
             style="@style/StartupEditTextField"
@@ -59,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:ems="10"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:importantForAutofill="no" />
 
@@ -69,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:importantForAutofill="no" />
 
@@ -79,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16sp"
-            android:text="Log in"
+            android:text="@string/log_in"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvForgotPassword" />
@@ -90,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4sp"
-            android:text="Create an account"
+            android:text="@string/create_an_account"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnLogin" />

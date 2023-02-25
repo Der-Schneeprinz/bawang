@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center_horizontal">
 
@@ -17,36 +17,47 @@
             android:id="@id/conTop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            layout="@layout/item_startup_logo" />
+            layout="@layout/layout_startup_logo" />
 
         <LinearLayout
             style="@style/StartupConBot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:paddingVertical="20sp">
 
             <TextView
                 style="@style/StartupGreetingText"
                 android:id="@+id/tvGreetings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="20sp"
-                android:text="Sign up to Org Search"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text="@string/sign_up_to_org_search" />
 
             <ImageView
                 android:id="@+id/drawerIndicator"
                 android:layout_width="200sp"
                 android:layout_height="22sp"
                 android:paddingVertical="10sp"
-                app:layout_constraintTop_toBottomOf="@+id/tvGreetings"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/shape_drawer_indicator"
-                app:tint="@color/yellow_2" />
+                app:tint="@color/yellow_2"
+                android:contentDescription="@string/line" />
+
+            <ImageView
+                android:id="@+id/ivProfilePic"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:background="@null"
+                app:srcCompat="@drawable/ic_baseline_account_circle_24"
+                app:tint="@color/white"
+                android:contentDescription="@string/profile_picture" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/StartupProfileButton"
+                android:id="@+id/btnChangePFP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_profile_picture"/>
 
             <EditText
                 style="@style/StartupEditTextField"
@@ -54,11 +65,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="First Name"
-                android:inputType="text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/drawerIndicator" />
+                android:autofillHints="@string/first_name"
+                android:hint="@string/first_name"
+                android:inputType="text" />
 
             <EditText
                 style="@style/StartupEditTextField"
@@ -66,11 +75,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:hint="Middle Name"
-                android:inputType="text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etFirstName" />
+                android:autofillHints="@string/middle_name"
+                android:hint="@string/middle_name"
+                android:inputType="text" />
 
             <EditText
                 style="@style/StartupEditTextField"
@@ -78,11 +85,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:hint="Last Name"
-                android:inputType="text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etMidName" />
+                android:autofillHints="@string/last_name"
+                android:hint="@string/last_name"
+                android:inputType="text" />
 
             <EditText
                 style="@style/StartupEditTextField"
@@ -90,11 +95,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etLastName" />
+                android:autofillHints="@string/email"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress" />
 
             <EditText
                 style="@style/StartupEditTextField"
@@ -102,11 +105,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:hint="Password"
-                android:inputType="textPassword"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+                android:autofillHints="@string/password"
+                android:hint="@string/password"
+                android:inputType="textPassword" />
 
             <EditText
                 style="@style/StartupEditTextField"
@@ -114,11 +115,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:hint="Student Number"
-                android:inputType="text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+                android:autofillHints="@string/student_number"
+                android:hint="@string/student_number"
+                android:inputType="text" />
 
             <Spinner
                 style="@style/StartupSpinner"
@@ -126,21 +125,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown"
-                android:contentDescription="Select Sex..."
-                android:hint="Select Sex..."
-                android:text="Select Sex..."
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etStudentNo" />
+                android:contentDescription="@string/select_sex"
+                android:text="@string/select_sex" />
+
+            <EditText
+                style="@style/StartupEditTextField"
+                android:id="@+id/etBirth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/birthdate"
+                android:hint="@string/birthdate"
+                android:inputType="date"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                style="@style/StartupSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/display_birthdate"
+                android:text="@string/display_birthdate"/>
 
             <CheckBox
                 style="@style/NormalCheckbox"
                 android:id="@+id/cbAgreement"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="I agree to the Terms of Service of Org Search"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spSex" />
+                android:text="@string/agreement" />
 
             <androidx.appcompat.widget.AppCompatButton
                 style="@style/StartupPrimaryButton"
@@ -148,10 +157,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16sp"
-                android:text="Sign up"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cbAgreement"/>
+                android:text="@string/sign_up"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 style="@style/StartupSecondaryButton"
@@ -159,10 +165,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4sp"
-                android:text="I already have an account"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
+                android:text="@string/i_already_have_an_account" />
 
         </LinearLayout>
 

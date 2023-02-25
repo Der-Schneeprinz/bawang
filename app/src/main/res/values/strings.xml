@@ -37,4 +37,40 @@
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Misc. Strings -->
+    <string name="profile_picture">Profile Picture</string>
+    <string name="first_name">First Name</string>
+    <string name="middle_name">Middle Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="student_number">Student Number</string>
+    <string name="select_sex">Select Sex…</string>
+    <string name="change_profile_picture">Change Profile Picture</string>
+    <string name="birthdate">Birthdate</string>
+    <string name="display_birthdate">Display Birthdate</string>
+    <string name="accept">Accept</string>
+    <string name="reject">Reject</string>
+    <string name="organization">Organization</string>
+    <string name="tabs">Tabs</string>
+    <string name="no_one">NO ONE</string>
+    <string name="no_email">NO EMAIL</string>
+    <string name="no_description">NO DESCRIPTION</string>
+    <string name="follow">Follow</string>
+    <string name="join">Join</string>
+    <string name="line">Line</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+    <string name="log_in_to_org_search">Log in to Org Search</string>
+    <string name="log_in">Log in</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="sign_up_to_org_search">Sign up to Org Search</string>
+    <string name="add_profile_picture">Add Profile Picture</string>
+    <string name="agreement">I agree to the Terms of Service of Org Search</string>
+    <string name="sign_up">Sign up</string>
+    <string name="i_already_have_an_account">I already have an account</string>
+    <string name="upvote">Upvote</string>
+    <string name="downvote">Downvote</string>
 </resources>
