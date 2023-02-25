@@ -22,31 +22,39 @@
                 android:id="@+id/conMasthead"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                layout="@layout/item_masthead"/>
+                layout="@layout/layout_masthead"/>
 
             <androidx.appcompat.widget.Toolbar
                 style="@style/TopBar"
                 android:id="@+id/toolbar"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin">
 
-                <TextView
-                    style="@style/TopBarTitle"
-                    android:id="@+id/tvProfile"
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Profile"
-                    android:layout_alignParentStart="true"
-                    android:layout_toStartOf="@+id/btnLogout"/>
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-                <Button
-                    style="@style/CreatePostPostBtn"
-                    android:id="@+id/btnLogout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="LOGOUT"
-                    android:layout_alignParentEnd="true" />
+                    <TextView
+                        style="@style/TopBarTitle"
+                        android:id="@+id/tvProfile"
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@+id/btnLogout"/>
+
+                    <Button
+                        android:id="@+id/btnLogout"
+                        style="@style/CreatePostPostBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/logout" />
+
+                </RelativeLayout>
 
             </androidx.appcompat.widget.Toolbar>
 

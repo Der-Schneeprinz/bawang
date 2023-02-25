@@ -5,8 +5,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,8 +23,8 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.merah.bawang.R;
 import com.merah.bawang.model.OrganizationRVItem;
-import com.merah.bawang.model.UserSelfProfileItem;
 import com.merah.bawang.view.bootup.LoginActivity;
+import com.merah.bawang.view.profiles.EditProfileActivity;
 import com.merah.bawang.view.profiles.ProfileActivity;
 import com.merah.bawang.viewmodel.profilefragment.ViewModelProfileSelf;
 import com.merah.bawang.viewmodel.recyclervieworganizations.OrgsAdapter;
@@ -41,8 +41,6 @@ public class ProfileFragment extends Fragment {
     private ViewModelProfileSelf viewModelProfileSelf;
 
     private ProgressBar progressBar;
-    private ImageButton imageButton;
-    private Button btnLogOut;
     private ImageView ivProfile;
     private TextView tvProfileName;
     private TextView tvProfileEmail;
@@ -59,14 +57,23 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        btnLogOut = view.findViewById(R.id.btnLogout);
+        // LOG OUT
+        Button btnLogOut = view.findViewById(R.id.btnLogout);
         btnLogOut.setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(getActivity(), LoginActivity.class);
             startActivity(intent);
         });
 
+        // MASTHEAD / PROFILE DETAILS
         View mastInclude = view.findViewById(R.id.conMasthead);
+
+        ImageButton ibEdit = mastInclude.findViewById(R.id.ibEdit);
+        ibEdit.setOnClickListener(v -> {
+            // TODO: Intent to edit profile activity
+            Intent intent = new Intent(getActivity(), EditProfileActivity.class);
+            startActivity(intent);
+        });
 
         ivProfile = mastInclude.findViewById(R.id.ivProfile);
         tvProfileName = mastInclude.findViewById(R.id.tvProfileName);
@@ -77,14 +84,17 @@ public class ProfileFragment extends Fragment {
 
         View rvInclude = view.findViewById(R.id.conAffiliates);
 
-        progressBar = rvInclude.findViewById(R.id.progressBar);
-        recyclerView = rvInclude.findViewById(R.id.recyclerView);
-        imageButton = rvInclude.findViewById(R.id.ibOrgSettings);
-
+        // For Organization Preferences
+        ImageButton imageButton = rvInclude.findViewById(R.id.ibOrgSettings);
         imageButton.setOnClickListener(v -> {
+            // TODO: Intent to organization preferences
             Intent intent = new Intent(getActivity(), ProfileActivity.class);
             startActivity(intent);
         });
+
+        // RECYCLERVIEW
+        progressBar = rvInclude.findViewById(R.id.progressBar);
+        recyclerView = rvInclude.findViewById(R.id.recyclerView);
 
         OrgsAdapter adapter = new OrgsAdapter(getContext(), organizationRVItems);
 
@@ -101,8 +111,10 @@ public class ProfileFragment extends Fragment {
 
         viewModelProfileSelf = new ViewModelProvider(this).get(ViewModelProfileSelf.class);
         viewModelProfileSelf.getProfile().observe(getViewLifecycleOwner(), userSelfProfileItem -> {
-            //ivProfile.setImageDrawable(viewModelProfileSelf.getProfile().getValue().getProfile());
-            tvProfileName.setText(Objects.requireNonNull(viewModelProfileSelf.getProfile().getValue()).getFullName());
+            ivProfile.setImageDrawable(ContextCompat.getDrawable(requireContext(),
+                    Objects.requireNonNull(viewModelProfileSelf.getProfile().getValue()).getProfile()));
+            tvProfileName.setText(Objects.requireNonNull(viewModelProfileSelf
+                    .getProfile().getValue()).getFullName());
             tvProfileEmail.setText(viewModelProfileSelf.getProfile().getValue().getEmail());
             tvSex.setText(viewModelProfileSelf.getProfile().getValue().getSex());
             tvDate.setText(viewModelProfileSelf.getProfile().getValue().getBirthdate());

@@ -5,7 +5,7 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 
 import com.merah.bawang.R;
-import com.merah.bawang.model.User;
+import com.merah.bawang.model.user.User;
 import com.merah.bawang.model.UserRVItem;
 import com.merah.bawang.model.UserSelfProfileItem;
 
