@@ -15,7 +15,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <include
                 android:id="@+id/conMasthead"
@@ -33,7 +33,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/conMasthead"
-                layout="@layout/item_org_newsfeed"/>
+                layout="@layout/layout_org_newsfeed"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -52,7 +52,7 @@
             style="@style/TopBarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Organization"
+            android:text="@string/organization"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
